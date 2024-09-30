@@ -584,12 +584,12 @@
 
 				// Do stuffs for each variations form
 				$( function () {
-					$( '.variations_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
+					$( '.variations_form:not(.swatchly_variation_form), .product-type-bundle .bundle_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
 				} );
 
 				// All major quick view plugin support
 				$(document).ajaxComplete(function (event, request, settings) {	
-					$( '.variations_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
+					$( '.variations_form:not(.swatchly_variation_form), .product-type-bundle .bundle_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
 				});
 			}
 		}
