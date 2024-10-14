@@ -939,7 +939,7 @@ class Global_Settings {
                                     'type'       => 'color',
                                     'title'      => esc_html__('Swatch Text Color', 'swatchly'),
                                     'output'     => array(
-                                        '.swatchly-content:hover .swatchly-text',
+                                        '.swatchly-swatch:hover .swatchly-content .swatchly-text',
                                         '.swatchly-selected .swatchly-content .swatchly-text',
                                     ),
                                 ),
@@ -1133,7 +1133,7 @@ class Global_Settings {
                                     'type'       => 'color',
                                     'title'      => esc_html__('Swatch Text Color', 'swatchly'),
                                     'output'     => array(
-                                        '.swatchly_loop_variation_form .swatchly-content:hover .swatchly-text',
+                                        '.swatchly_loop_variation_form .swatchly-swatch:hover .swatchly-content .swatchly-text',
                                         '.swatchly_loop_variation_form .swatchly-selected .swatchly-content .swatchly-text',
                                     )
                                 ),
