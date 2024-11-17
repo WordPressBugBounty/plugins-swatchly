@@ -2,9 +2,9 @@
 Contributors: hasthemes, tarekht, aslamhasib, alberuni-azad, zenaulislam
 Tags: color swatch, variation swatches, woocommerce variation, product attributes, woocommerce attributes
 Requires at least: 4.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -192,6 +192,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+
+= Version: 1.3.7 -Date: 17 November 2024 =
+* Fixed: "Variation URL" not working with elementor loop issue.
+* Fixed: Swatch not working properly with bundles product issue.
 
 = Version: 1.3.6 -Date: 14 October 2024 =
 * Fixed: Issue with the button text color on swatch button hover does not change correctly.

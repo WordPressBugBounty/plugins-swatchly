@@ -376,7 +376,7 @@
 							// Add url parameter in product link using selected attribute
 							if(!is_product && ((pl_override_global && enable_pl_variation_url) || (!pl_override_global && enable_variation_url))) {
 								const product = e.target.closest( '.product' ),
-									productLink = product.querySelector('.woocommerce-loop-product__link'),
+									productLink = product.querySelector('.woocommerce-loop-product__link') || product.querySelector('a'),
 									links = product.querySelectorAll('a');
 								Array.from(links).forEach(link => {
 									const url = new URL(link.href),
@@ -465,7 +465,7 @@
 							// Add url parameter in product link using selected attribute
 							if(!is_product && ((pl_override_global && enable_pl_variation_url) || (!pl_override_global && enable_variation_url))) {
 								const product = e.target.closest( '.product' ),
-									productLink = product.querySelector('.woocommerce-loop-product__link'),
+									productLink = product.querySelector('.woocommerce-loop-product__link') || product.querySelector('a'),
 									links = product.querySelectorAll('a');
 								Array.from(links).forEach(link => {
 									const url = new URL(link.href),
@@ -584,12 +584,12 @@
 
 				// Do stuffs for each variations form
 				$( function () {
-					$( '.variations_form:not(.swatchly_variation_form), .product-type-bundle .bundle_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
+					$( '.variations_form:not(.swatchly_variation_form), .product-type-bundle form.bundle_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
 				} );
 
 				// All major quick view plugin support
 				$(document).ajaxComplete(function (event, request, settings) {	
-					$( '.variations_form:not(.swatchly_variation_form), .product-type-bundle .bundle_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
+					$( '.variations_form:not(.swatchly_variation_form), .product-type-bundle form.bundle_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
 				});
 			}
 		}
