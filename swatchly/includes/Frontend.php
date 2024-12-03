@@ -38,7 +38,7 @@ class Frontend {
         add_thickbox();
 
         wp_register_style( 'swatchly-frontend', SWATCHLY_ASSETS . '/css/frontend.css', array(), $this->version );
-        wp_register_script( 'swatchly-frontend', SWATCHLY_ASSETS . '/js/frontend.js', array('jquery'), $this->version, false );
+        wp_register_script( 'swatchly-frontend', SWATCHLY_ASSETS . '/js/frontend.js', array('jquery'), $this->version, true );
 
         $enable_swatches = swatchly_get_option('enable_swatches', null, 'pl');
 
