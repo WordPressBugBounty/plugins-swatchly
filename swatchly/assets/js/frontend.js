@@ -362,6 +362,42 @@
 				show_selected_attribute_name  = Boolean(Number(swatchly_params.show_selected_attribute_name)),
 				variation_label_separator     = swatchly_params.variation_label_separator;
 
+				const loopVariationUrlParams = ({event, value, paramName}) => {
+					const product = event.target.closest( '.product' ),
+						productLink = product.querySelector('.woocommerce-loop-product__link') || product.querySelector('.bundled_product_permalink') || product.querySelector('a'),
+						links = product.querySelectorAll('a');
+					Array.from(links).forEach(link => {
+						if(!$(link)?.attr('href')) return;
+						const url = new URL(link.href),
+							productUrl = new URL(productLink.href);
+						if(url.pathname === productUrl.pathname || url.href.indexOf('/product/') !== -1) {
+							if(value) {
+								if(!url.searchParams.get(paramName)) {
+									url.searchParams.append(paramName, value);
+								} else {
+									url.searchParams.set(paramName, value)
+								}
+							} else {
+								url.searchParams.delete(paramName)
+							}
+							link.href = url.toString();
+						}
+					});
+				},
+				singleVariationUrlParams = ({value, paramName}) => {
+					const url = new URL(location);
+					if(value) {
+						if(!url.searchParams.get(paramName)) {
+							url.searchParams.append(paramName, value);
+						} else {
+							url.searchParams.set(paramName, value)
+						}
+					} else {
+						url.searchParams.delete(paramName)
+					}
+					history.pushState({}, '', url.href);
+				};
+
 			if( enable_swatches){
 				$.fn.swatchly_variation_form = function(){
 					return this.each( function(){
@@ -372,45 +408,6 @@
 							var $el_swatch = $( this ),
 								$el_default_select = $el_swatch.closest( '.value' ).find( 'select' ),
 								value   = $el_swatch.attr( 'data-attr_value' );
-
-							// Add url parameter in product link using selected attribute
-							if(!is_product && ((pl_override_global && enable_pl_variation_url) || (!pl_override_global && enable_variation_url))) {
-								const product = e.target.closest( '.product' ),
-									productLink = product.querySelector('.woocommerce-loop-product__link') || product.querySelector('a'),
-									links = product.querySelectorAll('a');
-								Array.from(links).forEach(link => {
-									const url = new URL(link.href),
-										productUrl = new URL(productLink.href);
-									if(url.pathname === productUrl.pathname || url.href.indexOf('/product/') !== -1) {
-										const paramName = e.target.closest( '.value' ).querySelector('select').dataset.attribute_name;
-										if(!$el_swatch.hasClass('swatchly-selected')) {
-											if(!url.searchParams.get(paramName)) {
-												url.searchParams.append(paramName, value);
-											} else {
-												url.searchParams.set(paramName, value)
-											}
-										} else {
-											url.searchParams.delete(paramName)
-										}
-										link.href = url.toString();
-									}
-								});
-							}
-
-							if(is_product && ((sp_override_global && enable_sp_variation_url) || (!sp_override_global && enable_variation_url))) {
-								const url = new URL(location),
-									paramName = e.target.closest( '.value' ).querySelector('select').dataset.attribute_name;
-								if(!$el_swatch.hasClass('swatchly-selected')) {
-									if(!url.searchParams.get(paramName)) {
-										url.searchParams.append(paramName, value);
-									} else {
-										url.searchParams.set(paramName, value)
-									}
-								} else {
-									url.searchParams.delete(paramName)
-								}
-								history.pushState({}, '', url.href);
-							}
 								
 							if( !deselect_on_click ){
 								// Add selected class & remove siblings selected class
@@ -460,43 +457,50 @@
 							
 						})
 						.on('change', '.value select', function(e) {
-							const paramName = $(this)[0].dataset.attribute_name,
-								value = $(this)[0].value;
-							// Add url parameter in product link using selected attribute
-							if(!is_product && ((pl_override_global && enable_pl_variation_url) || (!pl_override_global && enable_variation_url))) {
-								const product = e.target.closest( '.product' ),
-									productLink = product.querySelector('.woocommerce-loop-product__link') || product.querySelector('a'),
-									links = product.querySelectorAll('a');
-								Array.from(links).forEach(link => {
-									const url = new URL(link.href),
-										productUrl = new URL(productLink.href);
-									if(url.pathname === productUrl.pathname || url.href.indexOf('/product/') !== -1) {
-										if(value) {
-											if(!url.searchParams.get(paramName)) {
-												url.searchParams.append(paramName, value);
-											} else {
-												url.searchParams.set(paramName, value)
-											}
-										} else {
-											url.searchParams.delete(paramName)
-										}
-										link.href = url.toString();
-									}
-								});
+							const QUICKVIEW_SELECTORS = [
+								'.woosq-popup',
+								'.qqvfw',
+								'.acoqvw_quickview',
+								'.quickviewwoo-product',
+								'.adfy-quick-view-modal-content',
+								'.swal2-content',
+								'.merchant-quick-view-content',
+								'.cawqv-modal',
+								'.xoo-qv-modal',
+								'.woolentor-quickview-modal',
+								'#wcqv_contend',
+								'.yith-quick-view',
+								'.quickswish-modal',
+								'.wd-popup',
+							];
+
+							const element = $(this)[0];
+							const paramName = element.dataset.attribute_name;
+							const value = element.value;
+
+							// Handle product loop variation URL
+							if ((pl_override_global && enable_pl_variation_url) || (!pl_override_global && enable_variation_url)) {
+								const isInProductLoop = e.target.closest('.products') && !e.target.closest('.summary');
+								const isBundleProduct = e.target.closest('.bundled_product');
+								if ((isInProductLoop || isBundleProduct) && !e.target.closest(QUICKVIEW_SELECTORS.join(', '))) {
+									
+									loopVariationUrlParams({
+										event: e,
+										value,
+										paramName,
+									});
+								}
 							}
 
-							if(is_product && ((sp_override_global && enable_sp_variation_url) || (!sp_override_global && enable_variation_url))) {
-								const url = new URL(location);
-								if(value) {
-									if(!url.searchParams.get(paramName)) {
-										url.searchParams.append(paramName, value);
-									} else {
-										url.searchParams.set(paramName, value)
-									}
-								} else {
-									url.searchParams.delete(paramName)
+							// Handle single product variation URL
+							if ((sp_override_global && enable_sp_variation_url) || (!sp_override_global && enable_variation_url)) {
+								const isInSingleProduct = is_product && e.target.closest('.summary');
+								if (isInSingleProduct && !e.target.closest([...QUICKVIEW_SELECTORS, '.bundle_form'].join(', '))) {
+									singleVariationUrlParams({
+										value,
+										paramName,
+									});
 								}
-								history.pushState({}, '', url.href);
 							}
 						})
 						.on( 'woocommerce_update_variation_values', function() {
@@ -582,14 +586,52 @@
 					});
 				}
 
+				const initVariationForms = () => {
+					const variationForm = $('.variations_form:not(.swatchly_initialized):not(.bundled_item_cart_content)');
+					const bundleForm = $('.bundle_form:not(.swatchly_initialized)');
+					if(variationForm.length) {
+						variationForm
+							.addClass('swatchly_variation_form swatchly_initialized')
+							.swatchly_variation_form();
+					}
+					if(bundleForm.length) {
+						bundleForm
+							.addClass('swatchly_variation_form swatchly_initialized')
+							.swatchly_variation_form();
+					}
+				};
+
 				// Do stuffs for each variations form
-				$( function () {
-					$( '.variations_form:not(.swatchly_variation_form), .product-type-bundle form.bundle_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
-				} );
+				$(document).ready(initVariationForms)
 
 				// All major quick view plugin support
-				$(document).ajaxComplete(function (event, request, settings) {	
-					$( '.variations_form:not(.swatchly_variation_form), .product-type-bundle form.bundle_form:not(.swatchly_variation_form)' ).addClass('swatchly_variation_form').swatchly_variation_form();
+				const QUICKVIEW_KEYWORDS = [
+					'woosq_quickview',
+					'quickswish_product',
+					'wqv_popup_content',
+					'acoqvw_get_quickview',
+					'qode-quick-view-for-woocommerce',
+					'quickviewwoo',
+					'ca-quick-view',
+					'xoo_qv_ajax',
+					'wcqv_get_product',
+				];
+				$(document).ajaxComplete(function (event, request, settings) {
+					if(QUICKVIEW_KEYWORDS.some(word => settings?.url?.includes(word) || settings?.data?.includes(word))) {
+						initVariationForms();
+					}
+				});
+				const QUICKVIEW_EVENTS = [
+					'addonifyQuickViewModalContentLoaded',
+					'gpls-arcw-quick-view-buy-now-for-woocommerce-quick-view-popup-rendered',
+					'yith_quick_view_loaded',
+					'merchant.quickview.ajax.loaded',
+					'wdQuickViewOpen',
+				];
+				// Handle event-based quick view plugins
+				QUICKVIEW_EVENTS.forEach(eventName => {
+					const target = eventName.startsWith('merchant') ? window : document;
+					$(target).on(eventName, initVariationForms);
 				});
 			}
 		}

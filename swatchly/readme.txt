@@ -4,7 +4,7 @@ Tags: color swatch, variation swatches, woocommerce variation, product attribute
 Requires at least: 4.0
 Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 1.3.9
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,22 @@ This exceptional WordPress plugin is designed for all store owners that want the
 1. Enable/Disable Swatch Limit for shop page
 1. Number of Swatch to Show
 1. Option to add PHP condition to enable/disable swatches for the product listing pages
+
+== 🏆Quick View Support ==
+1. ShopLentor
+1. WPC Smart Quick View for WooCommerce
+1. WPB Product Quick View Popup for WooCommerce	
+1. QuickSwish
+1. Quick View for WooCommerce
+1. QODE Quick View for WooCommerce
+1. CSSIgniter Quick View for WooCommerce
+1. Addonify - Quick View For WooCommerce
+1. Direct Checkout | Quick View | Buy Now For WooCommerce
+1. Merchant
+1. Premium Quick View by CodeAstrology
+1. Quick View WooCommerce
+1. Woo Quick View
+1. YITH WooCommerce Quick View
 
 == 👉 <a href="https://hasthemes.com/plugins/swatchly-product-variation-swatches-for-woocommerce-products/">Purchase Swatchly Pro</a>==
 
@@ -192,6 +208,9 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+
+= Version: 1.4.0 -Date: 29 January 2025 =
+* Fixed: Issue with multiple initialization of Swatchly on product page.
 
 = Version: 1.3.9 -Date: 03 December 2024 =
 * Fixed: Conflict with 3rd party plugin.
