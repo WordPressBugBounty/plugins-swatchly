@@ -58,6 +58,14 @@ if ( ! class_exists( 'Swatchly_Notices' ) ){
          */
         public function ajax_dismiss() {
 
+            // User Capability check
+            if ( ! current_user_can( 'manage_options' ) ) {
+                $error_message = [
+                    'message'  => __('You are not authorized.', 'swatchly')
+                ];
+                wp_send_json_error( $error_message );
+            }
+
             $nonce = !empty( $_POST['notice_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['notice_nonce'] ) ) : '';
 
             if( !wp_verify_nonce( $nonce, 'swatchly_notices_nonce') ) {
@@ -67,10 +75,21 @@ if ( ! class_exists( 'Swatchly_Notices' ) ){
                 wp_send_json_error( $error_message );
             }
 
+            // Define allowed options
+            $allowed_options = [
+                'hastech-notice-id-swatchly-rating-notice',
+            ];
+
             $notice_id   = ( isset( $_POST['noticeid'] ) ) ? sanitize_key( $_POST['noticeid'] ) : '';
             $alreadydid  = ( isset( $_POST['alreadydid'] ) ) ? sanitize_key( $_POST['alreadydid'] ) : '';
             $expire_time = ( isset( $_POST['expiretime'] ) ) ? sanitize_text_field( wp_unslash( $_POST['expiretime'] ) ) : '';
             $close_by    = ( isset( $_POST['closeby'] ) ) ? sanitize_key( $_POST['closeby'] ) : '';
+
+            // Ensure the option being updated is in the allowed list
+            if ( ! in_array( $notice_id, $allowed_options, true ) ) {
+                wp_send_json_error( [ 'message' => __( 'Invalid option.', 'swatchly' ) ] );
+                wp_die();
+            }
 
             if ( ! empty( $notice_id ) ) {
 
