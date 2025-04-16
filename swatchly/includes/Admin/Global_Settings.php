@@ -10,7 +10,7 @@ class Global_Settings {
      * Constructor
      */
     public function __construct() {
-        $this->settings();
+        add_action('csf_loaded', [$this, 'settings']);
     }
 
     /**

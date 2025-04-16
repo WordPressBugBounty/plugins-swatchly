@@ -10,7 +10,7 @@ class Attribute_Taxonomy_Metabox{
      * Constructor
      */
     public function __construct() {
-        $this->settings();
+        add_action( 'csf_loaded', [$this, 'settings'] );
     }
 
     /**
