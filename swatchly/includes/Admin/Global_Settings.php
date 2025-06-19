@@ -155,7 +155,7 @@ class Global_Settings {
                     'id'    => 'variation_url',
                     'type'  => 'checkbox',
                     'title' =>  esc_html__('Variation URL', 'swatchly'),
-                    'label' =>  esc_html__('Yes', 'swatchly-pro'),
+                    'label' =>  esc_html__('Yes', 'swatchly'),
                     'desc'    => __( 'Generate URL based on selected variation attributes.', 'swatchly' ),
                 ), 
                 // swatch_width
@@ -331,7 +331,7 @@ class Global_Settings {
                     'id'    => 'sp_variation_url',
                     'type'  => 'checkbox',
                     'title' =>  esc_html__('Variation URL', 'swatchly'),
-                    'label' =>  esc_html__('Yes', 'swatchly-pro'),
+                    'label' =>  esc_html__('Yes', 'swatchly'),
                     'desc'    => __( 'Generate URL based on selected variation attributes.', 'swatchly' ),
                     'dependency' => array('sp_override_global', '==', '1'),
                 ), 
@@ -513,7 +513,7 @@ class Global_Settings {
                     'id'    => 'pl_variation_url',
                     'type'  => 'checkbox',
                     'title' =>  esc_html__('Variation URL', 'swatchly'),
-                    'label' =>  esc_html__('Yes', 'swatchly-pro'),
+                    'label' =>  esc_html__('Yes', 'swatchly'),
                     'desc'    => __( 'Generate URL based on selected variation attributes.', 'swatchly' ),
                     'dependency' => array('pl_override_global', '==', '1'),
                 ), 
@@ -799,7 +799,7 @@ class Global_Settings {
                     'id'    => 'pl_enable_ajax_add_to_cart',
                     'type'  => 'checkbox',
                     'title' =>  esc_html__('Enable Ajax Add to Cart', 'swatchly'),
-                    'label' =>  esc_html__('Yes', 'swatchly-pro'),
+                    'label' =>  esc_html__('Yes', 'swatchly'),
                     'class'      => 'swatchly_pro_notice'
                 ),
                 // pl_add_to_cart_text

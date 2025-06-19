@@ -4,7 +4,7 @@ Tags: color swatch, variation swatches, woocommerce variation, product attribute
 Requires at least: 4.0
 Tested up to: 6.8
 Requires PHP: 5.4
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -208,6 +208,9 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+
+= Version: 1.4.3 -Date: 19 June 2025 =
+* Fixed: Translation issue in multiple areas.
 
 = Version: 1.4.2 -Date: 16 April 2025 =
 * Tested: Compatibility with the latest version of WordPress.

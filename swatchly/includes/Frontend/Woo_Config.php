@@ -802,9 +802,9 @@ class Woo_Config {
             // that's why we needed to manually add the localization
             wp_localize_script( 'wc-add-to-cart-variation', 'wc_add_to_cart_variation_params', array(
                 'wc_ajax_url'                      => \WC_AJAX::get_endpoint( '%%endpoint%%' ),
-                'i18n_no_matching_variations_text' => esc_attr__( 'Sorry, no products matched your selection. Please choose a different combination.', 'woocommerce' ),
-                'i18n_make_a_selection_text'       => esc_attr__( 'Please select some product options before adding this product to your cart.', 'woocommerce' ),
-                'i18n_unavailable_text'            => esc_attr__( 'Sorry, this product is unavailable. Please choose a different combination.', 'woocommerce' ),
+                'i18n_no_matching_variations_text' => esc_attr__( 'Sorry, no products matched your selection. Please choose a different combination.', 'swatchly' ),
+                'i18n_make_a_selection_text'       => esc_attr__( 'Please select some product options before adding this product to your cart.', 'swatchly' ),
+                'i18n_unavailable_text'            => esc_attr__( 'Sorry, this product is unavailable. Please choose a different combination.', 'swatchly' ),
             ));
         }
     }

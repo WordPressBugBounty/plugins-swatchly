@@ -3,7 +3,7 @@
  * Plugin Name: Swatchly - Variation Swatches for WooCommerce Products
  * Plugin URI:  https://plugindemo.hasthemes.com/swatchly/
  * Description: Variation Swatches for WooCommerce Products
- * Version:     1.4.2
+ * Version:     1.4.3
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -29,7 +29,7 @@ final class Swatchly {
      *
      * @since 1.0.0
      */
-    public $version = '1.4.2';
+    public $version = '1.4.3';
 
     /**
      * The single instance of the class

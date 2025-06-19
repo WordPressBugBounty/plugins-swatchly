@@ -298,7 +298,7 @@ class Recommended_Plugins {
                                                     <?php
                                                         if( $plugins_type == 'free' ){
                                                             /* translators: %s: Number of installations. */
-                                                            printf( esc_html__( '%s Active Installations' ), esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) );
+                                                            printf( esc_html__( '%s Active Installations', 'swatchly' ), esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) );
                                                         }
                                                     ?>
                                                 </span>
@@ -372,11 +372,11 @@ class Recommended_Plugins {
             $active_installs_millions = floor( $active_installs / 1000000 );
             $active_installs_text     = sprintf(
                 /* translators: %s: Number of millions. */
-                _nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations' ),
+                _nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations', 'swatchly' ),
                 number_format_i18n( $active_installs_millions )
             );
         } elseif ( 0 === $active_installs ) {
-            $active_installs_text = _x( 'Less Than 10', 'Active plugin installations' );
+            $active_installs_text = _x( 'Less Than 10', 'Active plugin installations', 'swatchly' );
         } else {
             $active_installs_text = number_format_i18n( $active_installs ) . '+';
         }

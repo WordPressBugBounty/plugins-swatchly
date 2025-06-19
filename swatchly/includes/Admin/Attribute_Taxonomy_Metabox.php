@@ -18,6 +18,11 @@ class Attribute_Taxonomy_Metabox{
      */
     public function settings() {
 		$taxonomy    = isset( $_GET['taxonomy'] ) ? sanitize_text_field( $_GET['taxonomy'] ) : ''; //phpcs:ignore
+
+		if(strpos($taxonomy, 'pa_') === false ) {
+			return;
+		}
+
 		$swatch_type = $this->get_taxonomy_swatch_type( $taxonomy );
 
 		$prefix      			  = 'swatchly_taxonomy_meta';
