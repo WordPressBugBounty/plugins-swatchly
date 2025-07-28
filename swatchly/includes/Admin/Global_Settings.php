@@ -82,8 +82,11 @@ class Global_Settings {
                 'pl_show_swatches_label'             => '',
                 'pl_show_clear_link'                 => 0,
                 'variation_url'                      => 0,
+                'recently_viewed_variations'         => 0,
                 'sp_variation_url'                   => 0,
+                'sp_recently_viewed_variations'      => 0,
                 'pl_variation_url'                   => 0,
+                'pl_recently_viewed_variations'      => 0,
                 'pl_align'                           => 'center',
                 'pl_position'                        => 'after_title',
                 'pl_custom_position_hook_name'       => '',
@@ -157,6 +160,14 @@ class Global_Settings {
                     'title' =>  esc_html__('Variation URL', 'swatchly'),
                     'label' =>  esc_html__('Yes', 'swatchly'),
                     'desc'    => __( 'Generate URL based on selected variation attributes.', 'swatchly' ),
+                ), 
+                // recently_viewed_variations
+                array(
+                    'id'    => 'recently_viewed_variations',
+                    'type'  => 'checkbox',
+                    'title' =>  esc_html__('Recently Viewed Variations', 'swatchly'),
+                    'label' =>  esc_html__('Yes', 'swatchly'),
+                    'desc'    => __( 'Automatically select recently viewed variations.', 'swatchly' ),
                 ), 
                 // swatch_width
                 array(
@@ -333,6 +344,15 @@ class Global_Settings {
                     'title' =>  esc_html__('Variation URL', 'swatchly'),
                     'label' =>  esc_html__('Yes', 'swatchly'),
                     'desc'    => __( 'Generate URL based on selected variation attributes.', 'swatchly' ),
+                    'dependency' => array('sp_override_global', '==', '1'),
+                ), 
+                // sp_recently_viewed_variations
+                array(
+                    'id'    => 'sp_recently_viewed_variations',
+                    'type'  => 'checkbox',
+                    'title' =>  esc_html__('Recently Viewed Variations', 'swatchly'),
+                    'label' =>  esc_html__('Yes', 'swatchly'),
+                    'desc'    => __( 'Automatically select recently viewed variations.', 'swatchly' ),
                     'dependency' => array('sp_override_global', '==', '1'),
                 ), 
                 // sp_swatch_width
@@ -515,6 +535,15 @@ class Global_Settings {
                     'title' =>  esc_html__('Variation URL', 'swatchly'),
                     'label' =>  esc_html__('Yes', 'swatchly'),
                     'desc'    => __( 'Generate URL based on selected variation attributes.', 'swatchly' ),
+                    'dependency' => array('pl_override_global', '==', '1'),
+                ), 
+                // pl_recently_viewed_variations
+                array(
+                    'id'    => 'pl_recently_viewed_variations',
+                    'type'  => 'checkbox',
+                    'title' =>  esc_html__('Recently Viewed Variations', 'swatchly'),
+                    'label' =>  esc_html__('Yes', 'swatchly'),
+                    'desc'    => __( 'Automatically select recently viewed variations.', 'swatchly' ),
                     'dependency' => array('pl_override_global', '==', '1'),
                 ), 
                 // pl_swatch_width

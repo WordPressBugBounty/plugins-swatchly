@@ -63,8 +63,11 @@ class Frontend {
         $sp_override_global              = swatchly_get_option('sp_override_global');
         $pl_override_global              = swatchly_get_option('pl_override_global');
         $enable_variation_url            = swatchly_get_option('variation_url');
+        $enable_rv_variations            = swatchly_get_option('recently_viewed_variations');
         $enable_pl_variation_url         = swatchly_get_option('pl_variation_url');
+        $enable_pl_rv_variations         = swatchly_get_option('pl_recently_viewed_variations');
         $enable_sp_variation_url         = swatchly_get_option('sp_variation_url');
+        $enable_sp_rv_variations         = swatchly_get_option('sp_recently_viewed_variations');
         
         $variation_label_separator       = swatchly_get_option('sp_variation_label_separator');
         if(is_product()){
@@ -89,8 +92,11 @@ class Frontend {
             'sp_override_global'              => $sp_override_global,
             'pl_override_global'              => $pl_override_global,
             'enable_variation_url'            => $enable_variation_url,
+            'enable_rv_variations'            => $enable_rv_variations,
             'enable_pl_variation_url'         => $enable_pl_variation_url,
+            'enable_pl_rv_variations'         => $enable_pl_rv_variations,
             'enable_sp_variation_url'         => $enable_sp_variation_url,
+            'enable_sp_rv_variations'         => $enable_sp_rv_variations,
         );
         wp_localize_script( 'swatchly-frontend', 'swatchly_params', $localize_vars );
     }

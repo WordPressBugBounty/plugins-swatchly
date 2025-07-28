@@ -355,53 +355,103 @@
 				sp_override_global            = Boolean(Number(swatchly_params.sp_override_global)),
 				pl_override_global            = Boolean(Number(swatchly_params.pl_override_global)),
 				enable_variation_url          = Boolean(Number(swatchly_params.enable_variation_url)),
+				enable_rv_variations          = Boolean(Number(swatchly_params.enable_rv_variations)),
 				enable_sp_variation_url       = Boolean(Number(swatchly_params.enable_sp_variation_url)),
+				enable_sp_rv_variations       = Boolean(Number(swatchly_params.enable_sp_rv_variations)),
 				enable_pl_variation_url       = Boolean(Number(swatchly_params.enable_pl_variation_url)),
+				enable_pl_rv_variations       = Boolean(Number(swatchly_params.enable_pl_rv_variations)),
 				is_product            		  = Boolean(Number(swatchly_params.is_product)),
 				deselect_on_click             = Boolean(Number(swatchly_params.deselect_on_click)),
 				show_selected_attribute_name  = Boolean(Number(swatchly_params.show_selected_attribute_name)),
 				variation_label_separator     = swatchly_params.variation_label_separator;
 
-				const loopVariationUrlParams = ({event, value, paramName}) => {
-					const product = event.target.closest( '.product' ),
-						productLink = product.querySelector('.woocommerce-loop-product__link') || product.querySelector('.bundled_product_permalink') || product.querySelector('a'),
-						links = product.querySelectorAll('a');
-					Array.from(links).forEach(link => {
-						if(!$(link)?.attr('href')) return;
-						const url = new URL(link.href),
-							productUrl = new URL(productLink.href);
-						if(url.pathname === productUrl.pathname || url.href.indexOf('/product/') !== -1) {
-							if(value) {
-								if(!url.searchParams.get(paramName)) {
-									url.searchParams.append(paramName, value);
-								} else {
-									url.searchParams.set(paramName, value)
-								}
+			const rv_variations_config = {
+				storage_key: 'swatchly_rv_variations',
+			};
+
+			const loopVariationUrlParams = ({event, value, paramName}) => {
+				const product = event.target.closest( '.product' ),
+					productLink = product.querySelector('.woocommerce-loop-product__link') || product.querySelector('.bundled_product_permalink') || product.querySelector('a'),
+					links = product.querySelectorAll('a');
+				Array.from(links).forEach(link => {
+					if(!$(link)?.attr('href')) return;
+					const url = new URL(link.href),
+						productUrl = new URL(productLink.href);
+					if(url.pathname === productUrl.pathname || url.href.indexOf('/product/') !== -1) {
+						if(value) {
+							if(!url.searchParams.get(paramName)) {
+								url.searchParams.append(paramName, value);
 							} else {
-								url.searchParams.delete(paramName)
+								url.searchParams.set(paramName, value)
 							}
-							link.href = url.toString();
-						}
-					});
-				},
-				singleVariationUrlParams = ({value, paramName}) => {
-					const url = new URL(location);
-					if(value) {
-						if(!url.searchParams.get(paramName)) {
-							url.searchParams.append(paramName, value);
 						} else {
-							url.searchParams.set(paramName, value)
+							url.searchParams.delete(paramName)
 						}
-					} else {
-						url.searchParams.delete(paramName)
+						link.href = url.toString();
 					}
-					history.pushState({}, '', url.href);
-				};
+				});
+			},
+			singleVariationUrlParams = ({value, paramName}) => {
+				const url = new URL(location);
+				if(value) {
+					if(!url.searchParams.get(paramName)) {
+						url.searchParams.append(paramName, value);
+					} else {
+						url.searchParams.set(paramName, value)
+					}
+				} else {
+					url.searchParams.delete(paramName)
+				}
+				history.pushState({}, '', url.href);
+			};
+
+			/**
+			 * Recently Viewed Variations
+			 * Update selected variations from local storage
+			 */
+			const updateRecentlyViewedVariations = ($el_variation_form) => {
+				const rv_variations = localStorage.getItem(rv_variations_config?.storage_key);
+				if(rv_variations){
+					const parsed_rv_variations = JSON.parse(rv_variations);
+					if(parsed_rv_variations[$el_variation_form.data('product_id')]){
+						const selected_variations = parsed_rv_variations[$el_variation_form.data('product_id')];
+						$el_variation_form.find('select').each(function(){
+							const $el_default_select = $(this);
+							const product_attributes = $el_default_select[0].name;
+							if(selected_variations[product_attributes]){
+								$el_default_select.val(selected_variations[product_attributes]);
+								$el_default_select.change();
+								const swatchly_swatch = $el_default_select.closest('td.value').find('.swatchly-swatch[data-attr_value="' + selected_variations[product_attributes] + '"]');
+								if(swatchly_swatch.length){
+									swatchly_swatch.addClass('swatchly-selected').siblings('div.swatchly-swatch').removeClass('swatchly-selected');
+								}
+							}
+						});
+					}
+				}
+			};
 
 			if( enable_swatches){
 				$.fn.swatchly_variation_form = function(){
 					return this.each( function(){
 						var $el_variation_form = $( this );
+
+						/**
+						 * Recently Viewed Variations
+						 * Update selected variations from local storage
+						 */
+						// Global setting (when overrides are not active)
+						if(enable_rv_variations && !sp_override_global && !pl_override_global){
+							updateRecentlyViewedVariations($el_variation_form);
+						} 
+						// Single product page with override active
+						else if(enable_sp_rv_variations && is_product && sp_override_global){
+							updateRecentlyViewedVariations($el_variation_form);
+						} 
+						// Product listing page with override active
+						else if(enable_pl_rv_variations && !is_product && pl_override_global){
+							updateRecentlyViewedVariations($el_variation_form);
+						}
 
 						// Actions while select a swatch
 						$el_variation_form.on( 'click', 'div.swatchly-swatch', function ( e ) {
@@ -449,6 +499,44 @@
 										}
 									}
 
+								}
+							}
+
+							/**
+							 * Recently Viewed Variations
+							 * Save selected variations in local storage
+							 */
+							if((enable_rv_variations && !sp_override_global && !pl_override_global) ||
+							(enable_sp_rv_variations && is_product && sp_override_global) ||
+							(enable_pl_rv_variations && !is_product && pl_override_global)){
+								const product_attributes = $el_default_select[0].name;
+								const product_id = $el_variation_form.data('product_id');
+								const rv_variations = localStorage.getItem(rv_variations_config?.storage_key);
+								if(rv_variations){
+									const parsed_rv_variations = JSON.parse(rv_variations);
+									if(parsed_rv_variations[product_id]){
+										const selected_variations = parsed_rv_variations[product_id];
+										localStorage.setItem(rv_variations_config?.storage_key, JSON.stringify({
+											...parsed_rv_variations,
+											[product_id]: {
+												...selected_variations,
+												[product_attributes]: value
+											}
+										}));
+									} else {
+										localStorage.setItem(rv_variations_config?.storage_key, JSON.stringify({
+											...parsed_rv_variations,
+											[product_id]: {
+												[product_attributes]: value
+											}
+										}));
+									}
+								} else {
+									localStorage.setItem(rv_variations_config?.storage_key, JSON.stringify({
+										[product_id]: {
+											[product_attributes]: value
+										}
+									}));
 								}
 							}
 
@@ -581,6 +669,23 @@
 							if( !swatchly_params.is_product ){
 								let $el_product = $(this).closest('.product');
 								$el_product.reset_to_default_image()
+							}
+
+							/**
+							 * Recently Viewed Variations
+							 * reset selected variations from local storage
+							 */
+							if((enable_rv_variations && !sp_override_global && !pl_override_global) ||
+							(enable_sp_rv_variations && is_product && sp_override_global) ||
+							(enable_pl_rv_variations && !is_product && pl_override_global)){
+								const rv_variations = localStorage.getItem(rv_variations_config?.storage_key);
+								if(rv_variations){
+									const parsed_rv_variations = JSON.parse(rv_variations);
+									if(parsed_rv_variations[$el_variation_form.data('product_id')]){
+										delete parsed_rv_variations[$el_variation_form.data('product_id')];
+										localStorage.setItem(rv_variations_config?.storage_key, JSON.stringify(parsed_rv_variations));
+									}
+								}
 							}
 						}); // on click div.swatchly-swatch
 					});
