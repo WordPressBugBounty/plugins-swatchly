@@ -277,7 +277,7 @@ table.wp-list-table td.column-thumb .swatchly_preview {
 
 /* Quick Recommended Plugin */
 #adminmenu .toplevel_page_whols-admin li a[href="admin.php?page=swatchly-welcome"],
-#wpbody-content .notice,
+#wpbody-content .notice:not(.swatchly-admin-notice),
 #wpbody-content .error{
 	display: none;
 }

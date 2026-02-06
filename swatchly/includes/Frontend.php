@@ -31,6 +31,15 @@ class Frontend {
     }
 
     /**
+     * Detect if Oxygen Builder is active
+     *
+     * @return bool
+     */
+    private function is_oxygen_builder_active() {
+        return defined( 'CT_VERSION' ) || class_exists( 'CT_Component' );
+    }
+
+    /**
      * Enqueue frontend assets
      */
     public function enqueue_frontend_assets() {
@@ -97,6 +106,7 @@ class Frontend {
             'enable_pl_rv_variations'         => $enable_pl_rv_variations,
             'enable_sp_variation_url'         => $enable_sp_variation_url,
             'enable_sp_rv_variations'         => $enable_sp_rv_variations,
+            'is_oxygen_builder'               => $this->is_oxygen_builder_active(),
         );
         wp_localize_script( 'swatchly-frontend', 'swatchly_params', $localize_vars );
     }

@@ -16,6 +16,18 @@ Contain all frontend style of the plugin.
     display: none !important;
 }
 
+/* Accessibility - Screen Reader Only Text */
+.swatchly-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
 
 /* Swatch Alignment */
 .swatchly_align_center .swatchly-type-wrap{
@@ -118,10 +130,6 @@ Contain all frontend style of the plugin.
 
 .swatchly-swatch:last-child {
     margin-right: 0;
-}
-
-.swatchly-swatch:focus {
-    display: none;
 }
 
 .swatchly-swatch .swatchly-content {
@@ -478,7 +486,15 @@ Contain all frontend style of the plugin.
 }
 
 .swatchly_default_select {
-    display: none !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border-width: 0 !important;
 }
 
 /*Notice*/

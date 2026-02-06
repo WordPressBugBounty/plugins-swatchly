@@ -36,25 +36,45 @@ class Admin {
 
         add_action('admin_footer', array( $this, 'pro_version_notice' ));
         add_action('admin_head', array( $this, 'admin_rating_notice' ));
+        add_action('admin_head', [$this, 'show_promo_notice']);
+    }
+
+    function show_promo_notice() {
+
+        // remove on next update
+        if(!get_option('force_update_swatchly_notice_info')) {
+            delete_transient('swatchly_notice_info');
+            update_option('force_update_swatchly_notice_info', true);
+        }
+
+        $noticeManager = \Swatchly_Notice_Manager::instance();
+        $notices = $noticeManager->get_notices_info();
+        if(!empty($notices)) {
+            foreach ($notices as $notice) {
+                if(empty($notice['disable'])) {
+                    \Swatchly_Notices::set_notice($notice);
+                }
+            }
+        }
     }
 
     public function admin_rating_notice() {
         if(get_option('swatchly_rating_already_rated', false)) {
             return;
         }
-        $message = '<div class="hastech-review-notice-wrap">
-                    <div class="hastech-rating-notice-logo">
+        $message = '<div class="swatchly-review-notice-wrap">
+                    <div class="swatchly-rating-notice-logo">
                         <img src="' . esc_url(SWATCHLY_URL . "/assets/images/logo.png") . '" alt="'.esc_attr__('Swatchly','swatchly').'" style="max-width:110px"/>
                     </div>
-                    <div class="hastech-review-notice-content">
+                    <div class="swatchly-review-notice-content">
                         <h3>'.esc_html__('Thank you for choosing Swatchly WooCommerce Variation Swatches for Products to design your website!','swatchly').'</h3>
                         <p>'.esc_html__('Would you mind doing us a huge favor by providing your feedback on WordPress? Your support helps us spread the word and greatly boosts our motivation.','swatchly').'</p>
-                        <div class="hastech-review-notice-action">
-                            <a href="https://wordpress.org/support/plugin/swatchly/reviews/?filter=5#new-post" class="hastech-review-notice button-primary" target="_blank">'.esc_html__('Ok, you deserve it!','swatchly').'</a>
+                        <div class="swatchly-review-notice-action">
+                            <a href="https://wordpress.org/support/plugin/swatchly/reviews/?filter=5#new-post" class="swatchly-review-notice button-primary" target="_blank">'.esc_html__('Ok, you deserve it!','swatchly').'</a>
                             <span class="dashicons dashicons-calendar"></span>
-                            <a href="#" class="hastech-notice-close swatchly-review-notice">'.esc_html__('Maybe Later','swatchly').'</a>
+                            <a href="#" class="swatchly-notice-close swatchly-review-notice">'.esc_html__('Maybe Later','swatchly').'</a>
                             <span class="dashicons dashicons-smiley"></span>
-                            <a href="#" data-already-did="yes" class="hastech-notice-close swatchly-review-notice">'.esc_html__('I already did','swatchly').'</a>
+                            <a href="#" data-already-did="yes" class="swatchly-notice-close swatchly-review-notice">'.esc_html__('I already did','swatchly').'</a>
                         </div>
                     </div>
                 </div>';

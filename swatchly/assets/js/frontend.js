@@ -8,6 +8,37 @@
 		return false;
 	}
 
+	/* Builder Compatibility Utilities
+	======================================================= */
+	var builderCompat = {
+		isOxygen: function() {
+			return Boolean(Number(swatchly_params.is_oxygen_builder));
+		},
+
+		findProductContainer: function($element) {
+			// Try standard .product first
+			var $container = $element.closest('.product');
+			if ($container.length) {
+				return $container;
+			}
+
+			// Oxygen Builder: look for ct-div-block with product-related class
+			if (this.isOxygen()) {
+				$container = $element.closest('.ct-div-block[class*="roduct"]');
+				if ($container.length) {
+					return $container;
+				}
+				$container = $element.closest('.ct-div-block');
+				if ($container.length) {
+					return $container;
+				}
+			}
+
+			// Final fallback
+			return $element.closest('.product');
+		}
+	};
+
 	/* Tooltip JS
 	======================================================= */
 	function addTooltip(){
@@ -103,14 +134,15 @@
 	// Find the product image selector
 	$.fn.get_product_image_selector = function(){
 		var $product_thumbnail = '',
-			product_thumbnail_selector = swatchly_params.product_thumbnail_selector;
+			product_thumbnail_selector = swatchly_params.product_thumbnail_selector,
+			$productContainer = builderCompat.findProductContainer($(this));
 
 		// custom selector priority first
 		if(product_thumbnail_selector){
 			$product_thumbnail = $(this).find(product_thumbnail_selector);
 
-			if( !$product_thumbnail.length && $(this).closest('.product').find(product_thumbnail_selector).length ){
-				$product_thumbnail = $(this).closest('.product').find(product_thumbnail_selector);
+			if( !$product_thumbnail.length && $productContainer.find(product_thumbnail_selector).length ){
+				$product_thumbnail = $productContainer.find(product_thumbnail_selector);
 			}
 
 			return $product_thumbnail;
@@ -137,8 +169,13 @@
 				if($product_thumbnail.length === 0){
 					$product_thumbnail = $(this).find('img.wp-post-image');
 
+					// Oxygen builder support
+					if($product_thumbnail.length === 0 && builderCompat.isOxygen()){
+						$product_thumbnail = $productContainer.find('.ct-image');
+					}
+
 					if($product_thumbnail.length === 0){
-						$product_thumbnail = $(this).find('img').first();
+						$product_thumbnail = $productContainer.find('img').first();
 					}
 				}
 			}
@@ -250,7 +287,7 @@
 
 		return this.each( function(){
 			var $el_variation_form = $( this ),
-				$el_product = $el_variation_form.closest('.product'),
+				$el_product = builderCompat.findProductContainer($el_variation_form),
 				$el_ajax_add_to_cart = $el_product.find('.swatchly_ajax_add_to_cart');
 
 			$el_product.backup_product_image();
@@ -370,24 +407,62 @@
 			};
 
 			const loopVariationUrlParams = ({event, value, paramName}) => {
-				const product = event.target.closest( '.product' ),
-					productLink = product.querySelector('.woocommerce-loop-product__link') || product.querySelector('.bundled_product_permalink') || product.querySelector('a'),
-					links = product.querySelectorAll('a');
+				const product = builderCompat.findProductContainer($(event.target))[0];
+				if (!product) return;
+
+				// Get the product URL from data attribute (theme-agnostic approach)
+				const variationForm = product.querySelector('.swatchly_loop_variation_form') ||
+					product.querySelector('.variations_form') ||
+					event.target.closest('.swatchly_loop_variation_form');
+				const productUrlFromData = variationForm ? variationForm.getAttribute('data-product_url') : null;
+
+				// Fallback to selector-based approach for backwards compatibility
+				const productLink = product.querySelector('.woocommerce-loop-product__link') ||
+					product.querySelector('.bundled_product_permalink') ||
+					product.querySelector('a[href*="/product/"]') ||
+					product.querySelector('a');
+
+				// Determine the product URL pathname
+				let productUrlPathname = null;
+				if (productUrlFromData) {
+					try {
+						productUrlPathname = new URL(productUrlFromData).pathname;
+					} catch (e) {
+						// Invalid URL from data attribute, will use fallback
+					}
+				}
+				if (!productUrlPathname && productLink) {
+					try {
+						productUrlPathname = new URL(productLink.href).pathname;
+					} catch (e) {
+						// Invalid URL from link
+					}
+				}
+
+				const links = product.querySelectorAll('a');
 				Array.from(links).forEach(link => {
 					if(!$(link)?.attr('href')) return;
-					const url = new URL(link.href),
-						productUrl = new URL(productLink.href);
-					if(url.pathname === productUrl.pathname || url.href.indexOf('/product/') !== -1) {
-						if(value) {
-							if(!url.searchParams.get(paramName)) {
-								url.searchParams.append(paramName, value);
+					try {
+						const url = new URL(link.href);
+						// Match links by comparing pathname OR if link contains /product/ (backwards compat)
+						const shouldUpdate = productUrlPathname
+							? (url.pathname === productUrlPathname)
+							: (url.href.indexOf('/product/') !== -1);
+
+						if(shouldUpdate) {
+							if(value) {
+								if(!url.searchParams.get(paramName)) {
+									url.searchParams.append(paramName, value);
+								} else {
+									url.searchParams.set(paramName, value)
+								}
 							} else {
-								url.searchParams.set(paramName, value)
+								url.searchParams.delete(paramName)
 							}
-						} else {
-							url.searchParams.delete(paramName)
+							link.href = url.toString();
 						}
-						link.href = url.toString();
+					} catch (e) {
+						// Ignore invalid URLs
 					}
 				});
 			},
@@ -570,8 +645,10 @@
 							if ((pl_override_global && enable_pl_variation_url) || (!pl_override_global && enable_variation_url)) {
 								const isInProductLoop = e.target.closest('.products') && !e.target.closest('.summary');
 								const isBundleProduct = e.target.closest('.bundled_product');
-								if ((isInProductLoop || isBundleProduct) && !e.target.closest(QUICKVIEW_SELECTORS.join(', '))) {
-									
+								// Fallback: check if inside swatchly_loop_variation_form (works regardless of theme structure)
+								const isInSwatchlyLoopForm = e.target.closest('.swatchly_loop_variation_form') && !e.target.closest('.summary');
+
+								if ((isInProductLoop || isBundleProduct || isInSwatchlyLoopForm) && !e.target.closest(QUICKVIEW_SELECTORS.join(', '))) {
 									loopVariationUrlParams({
 										event: e,
 										value,
@@ -633,7 +710,7 @@
 
 							// Update price for product loop
 							var $price_selector = '.price',
-								$el_product = $el_variation_form.closest('.product');
+								$el_product = builderCompat.findProductContainer($el_variation_form);
 							if(!swatchly_params.is_product){
 								if($el_product.find('.swatchly_price').length){
 									$el_product.find($price_selector).removeClass('swatchly_d_none');
@@ -647,7 +724,7 @@
 							if( !swatchly_params.is_product ){
 								var $product_thumbnail = $(this).get_product_image_selector();
 
-								let $el_product = $(this).closest('.product');
+								let $el_product = builderCompat.findProductContainer($(this));
 								$el_product.backup_product_image();
 	
 								$product_thumbnail.attr('src', variation.image.url);
@@ -667,7 +744,7 @@
 							// some user use single product add to cart button in the product loop
 							// so we need to reset the image for the product loop
 							if( !swatchly_params.is_product ){
-								let $el_product = $(this).closest('.product');
+								let $el_product = builderCompat.findProductContainer($(this));
 								$el_product.reset_to_default_image()
 							}
 

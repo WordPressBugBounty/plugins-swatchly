@@ -251,9 +251,18 @@ class Woo_Config {
             return $html; 
         }
 
+        // Accessibility: Apply filter to enable/disable accessibility features
+        $accessibility_enabled = apply_filters('swatchly_accessibility_enabled', true);
+
+        // Accessibility: Radiogroup for attribute selection
+        $attribute_label = wc_attribute_label($taxonomy);
+        $attr_role = $accessibility_enabled ? "role='radiogroup'" : '';
+        /* translators: %s: Attribute label (e.g., Color, Size) */
+        $attr_aria_label = $accessibility_enabled ? "aria-label='" . esc_attr(sprintf(__('Select %s', 'swatchly'), $attribute_label)) . "'" : '';
+
         $attr_class = "class='swatchly-type-wrap swatchly-shape-type-$shape_style swatchly-type-$swatch_type $inset_class swatchly-$disabled_attribute_type_class $featured_class $hide_this_variation_row_class'";
         $attr_default_attr_value  = "data-default_attr_value='$current_term_label'";
-        $html .= "<div $attr_class $attr_default_attr_value>";
+        $html .= "<div $attr_class $attr_default_attr_value $attr_role $attr_aria_label>";
 
             if ( taxonomy_exists( $taxonomy ) ) {
                 $attribute_terms  = array();
@@ -396,8 +405,20 @@ class Woo_Config {
                     $attr_tooltip_text  = $tooltip && $tooltip_text ? 'data-tooltip_text="'. esc_attr($tooltip_text) .'"' : '';
                     $attr_tooltip_image = $tooltip && $tooltip_image ? 'data-tooltip_image="'. esc_attr($tooltip_image) .'"' : '';
 
+                    // Accessibility attributes
+                    $is_selected = ($term->slug == $selected);
+                    $attr_role = $accessibility_enabled ? "role='radio'" : '';
+                    $attr_tabindex = $accessibility_enabled ? "tabindex='0'" : '';
+                    $attr_aria_checked = $accessibility_enabled ? "aria-checked='" . ($is_selected ? 'true' : 'false') . "'" : '';
+
+                    // Generate aria-label with filter support
+                    /* translators: 1: Attribute label (e.g., Color), 2: Attribute value (e.g., Red) */
+                    $aria_label_text = sprintf(__('%1$s: %2$s', 'swatchly'), $attribute_label, $term->name);
+                    $aria_label_text = apply_filters('swatchly_aria_label_format', $aria_label_text, $attribute_label, $term->name, $swatch_type, $product);
+                    $attr_aria_label = $accessibility_enabled ? "aria-label='" . esc_attr($aria_label_text) . "'" : '';
+
                     if($swatch_type == 'label'){
-                        $html .= "<div $attr_class $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value>";
+                        $html .= "<div $attr_class $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
                             $html .= '<span class="swatchly-content"><span class="swatchly-text">'. esc_html($term->name) .'</span></span>';
                         $html .= '</div>';
 
@@ -410,8 +431,12 @@ class Woo_Config {
                             $attr_inline_style = $background_color_2 ? "style='background: linear-gradient(-50deg, $background_color 50%, $background_color_2 50%);'" : '';
                         }
 
-                        $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value>";
+                        $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
                             $html .= '<span class="swatchly-content"></span>';
+                            // Accessibility: Add visually hidden text for screen readers
+                            if($accessibility_enabled){
+                                $html .= '<span class="swatchly-sr-only">' . esc_html($term->name) . '</span>';
+                            }
                         $html .= '</div>';
                     }
 
@@ -424,7 +449,7 @@ class Woo_Config {
                         if( $show_swatch_image_in_tooltip ){
                             $swatch_image_size  = $tooltip_image_size;
                         }
-                        
+
                         $background_image   = $image_id ? wp_get_attachment_image_url( $image_id, $swatch_image_size ) : wc_placeholder_img_src( $swatch_image_size );
 
                         if( $show_swatch_image_in_tooltip ){
@@ -433,8 +458,12 @@ class Woo_Config {
 
                         $attr_inline_style  = $background_image ? " style='background-image: url( $background_image );'" : '';
 
-                        $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value>";
+                        $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
                             $html .= '<span class="swatchly-content"></span>';
+                            // Accessibility: Add visually hidden text for screen readers
+                            if($accessibility_enabled){
+                                $html .= '<span class="swatchly-sr-only">' . esc_html($term->name) . '</span>';
+                            }
                         $html .= '</div>';
                     }
                 }
@@ -545,8 +574,20 @@ class Woo_Config {
                     $attr_tooltip_text  = $tooltip && $tooltip_text ? 'data-tooltip_text="'. esc_attr($tooltip_text) .'"' : '';
                     $attr_tooltip_image = $tooltip && $tooltip_image ? 'data-tooltip_image="'. esc_attr($tooltip_image) .'"' : '';
 
+                    // Accessibility attributes for custom variations
+                    $is_selected = ($variation_name == $selected);
+                    $attr_role = $accessibility_enabled ? "role='radio'" : '';
+                    $attr_tabindex = $accessibility_enabled ? "tabindex='0'" : '';
+                    $attr_aria_checked = $accessibility_enabled ? "aria-checked='" . ($is_selected ? 'true' : 'false') . "'" : '';
+
+                    // Generate aria-label with filter support
+                    /* translators: 1: Attribute label (e.g., Color), 2: Variation name (e.g., Red) */
+                    $aria_label_text = sprintf(__('%1$s: %2$s', 'swatchly'), $attribute_label, $variation_name);
+                    $aria_label_text = apply_filters('swatchly_aria_label_format', $aria_label_text, $attribute_label, $variation_name, $swatch_type, $product);
+                    $attr_aria_label = $accessibility_enabled ? "aria-label='" . esc_attr($aria_label_text) . "'" : '';
+
                     if($swatch_type == 'label'){
-                        $html .= "<div $attr_class $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value>";
+                        $html .= "<div $attr_class $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
                             $html .= '<span class="swatchly-content"><span class="swatchly-text">'. esc_html($variation_name) .'</span></span>';
                         $html .= '</div>';
 
@@ -559,8 +600,12 @@ class Woo_Config {
                             $attr_inline_style = $background_color_2 ? "style='background: linear-gradient(-50deg, $background_color 50%, $background_color_2 50%);'" : '';
                         }
 
-                        $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value>";
+                        $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
                             $html .= '<span class="swatchly-content"></span>';
+                            // Accessibility: Add visually hidden text for screen readers
+                            if($accessibility_enabled){
+                                $html .= '<span class="swatchly-sr-only">' . esc_html($variation_name) . '</span>';
+                            }
                         $html .= '</div>';
                     }
 
@@ -578,8 +623,12 @@ class Woo_Config {
                         }
                         $attr_inline_style  = $background_image ? " style='background-image: url( $background_image );'" : '';
 
-                        $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value>";
+                        $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
                             $html .= '<span class="swatchly-content"></span>';
+                            // Accessibility: Add visually hidden text for screen readers
+                            if($accessibility_enabled){
+                                $html .= '<span class="swatchly-sr-only">' . esc_html($variation_name) . '</span>';
+                            }
                         $html .= '</div>';
                     }
 
@@ -651,11 +700,12 @@ class Woo_Config {
         $attribute_keys  = array_keys( $attributes );
         $variations_json = wp_json_encode( $available_variations );
         $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+        $product_url     = get_permalink( $product->get_id() );
 
         $html = '';
         ob_start();
         ?>
-            <form class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo esc_attr(absint( $product->get_id() )); ?>" data-product_variations="<?php echo esc_attr($variations_attr); // WPCS: XSS ok. ?>">
+            <form class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo esc_attr(absint( $product->get_id() )); ?>" data-product_url="<?php echo esc_url( $product_url ); ?>" data-product_variations="<?php echo esc_attr($variations_attr); // WPCS: XSS ok. ?>">
 
                 <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
                     <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'swatchly' ) ) ); ?></p>
@@ -722,8 +772,9 @@ class Woo_Config {
         $attribute_keys  = array_keys( $attributes );
         $variations_json = wp_json_encode( $available_variations );
         $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+        $product_url     = get_permalink( $product->get_id() );
         ?>
-            <div class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo esc_attr(absint( $product->get_id() )); ?>" data-product_variations="<?php echo esc_attr($variations_attr); // WPCS: XSS ok. ?>">
+            <div class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo esc_attr(absint( $product->get_id() )); ?>" data-product_url="<?php echo esc_url( $product_url ); ?>" data-product_variations="<?php echo esc_attr($variations_attr); // WPCS: XSS ok. ?>">
 
                 <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
                     <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'swatchly' ) ) ); ?></p>

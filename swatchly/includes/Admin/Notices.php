@@ -33,7 +33,7 @@ if ( ! class_exists( 'Swatchly_Notices' ) ){
 
         /**
          * [instance]
-         * @return [HasTech_Notices]
+         * @return [Swatchly_Notices]
          */
         public static function instance(){
             if( is_null( self::$instance ) ){
@@ -58,37 +58,27 @@ if ( ! class_exists( 'Swatchly_Notices' ) ){
          */
         public function ajax_dismiss() {
 
+            $nonce       = !empty( $_POST['notice_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['notice_nonce'] ) ) : '';
+            $notice_id   = ( isset( $_POST['noticeid'] ) ) ? sanitize_key( $_POST['noticeid'] ) : '';
+            $alreadydid  = ( isset( $_POST['alreadydid'] ) ) ? sanitize_key( $_POST['alreadydid'] ) : '';
+            $expire_time = ( isset( $_POST['expiretime'] ) ) ? sanitize_text_field( wp_unslash( $_POST['expiretime'] ) ) : '';
+            $close_by    = ( isset( $_POST['closeby'] ) ) ? sanitize_key( $_POST['closeby'] ) : '';
+            $notice      = $this->get_notice_by_id( $notice_id );
+            $capability  = isset( $notice['capability'] ) ? $notice['capability'] : 'manage_options';
+
             // User Capability check
-            if ( ! current_user_can( 'manage_options' ) ) {
+            if ( ! current_user_can( $capability ) ) {
                 $error_message = [
                     'message'  => __('You are not authorized.', 'swatchly')
                 ];
                 wp_send_json_error( $error_message );
             }
 
-            $nonce = !empty( $_POST['notice_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['notice_nonce'] ) ) : '';
-
             if( !wp_verify_nonce( $nonce, 'swatchly_notices_nonce') ) {
                 $error_message = [
                     'message'  => __('Are you cheating?', 'swatchly')
                 ];
                 wp_send_json_error( $error_message );
-            }
-
-            // Define allowed options
-            $allowed_options = [
-                'hastech-notice-id-swatchly-rating-notice',
-            ];
-
-            $notice_id   = ( isset( $_POST['noticeid'] ) ) ? sanitize_key( $_POST['noticeid'] ) : '';
-            $alreadydid  = ( isset( $_POST['alreadydid'] ) ) ? sanitize_key( $_POST['alreadydid'] ) : '';
-            $expire_time = ( isset( $_POST['expiretime'] ) ) ? sanitize_text_field( wp_unslash( $_POST['expiretime'] ) ) : '';
-            $close_by    = ( isset( $_POST['closeby'] ) ) ? sanitize_key( $_POST['closeby'] ) : '';
-
-            // Ensure the option being updated is in the allowed list
-            if ( ! in_array( $notice_id, $allowed_options, true ) ) {
-                wp_send_json_error( [ 'message' => __( 'Invalid option.', 'swatchly' ) ] );
-                wp_die();
             }
 
             if ( ! empty( $notice_id ) ) {
@@ -116,44 +106,76 @@ if ( ! class_exists( 'Swatchly_Notices' ) ){
          */
         public function enqueue_scripts() {
             
-            printf( '<style>%s</style>', ".hastech-admin-notice.promo-banner {
-                position: relative;
-                padding-top: 20px !important;
-                padding-right: 40px;
+            printf( '<style>%s</style>', ".swatchly-admin-notice {
+                width: 100%;
+                box-sizing: border-box;
             }
-            .hastech-admin-notice.notice img, .hastech-review-notice-wrap img{
+            
+            .swatchly-admin-notice.promo-banner {
+                position: relative;
+                padding: 12px !important;
+                border: 1px solid #c3c4c7;
+            }
+            .swatchly-admin-notice.promo-banner a {
+                display: flex;
+            }
+            .swatchly-admin-notice.promo-banner img {
                 width: 100%;
             }
-            .hastech-review-notice-wrap{
+            .swatchly-admin-notice.promo-banner *:empty:not(img) {
+                display: none;
+            }
+            .swatchly-admin-notice.promo-banner .notice-dismiss {
+                top: -10px;
+                right: -10px;
+                background-color: white;
+                padding: 2px;
+                border-radius: 50px;
+                border: 1px solid #ddd;
+            }
+
+            #swatchly-notice-id-swatchly-halloween-notice {
+                padding: 12px;
+                border-left-width: 1px;
+            }
+            #swatchly-notice-id-swatchly-halloween-notice .notice-dismiss {
+                top: -10px;
+                right: -10px;
+                background-color: white;
+                padding: 2px;
+                border-radius: 50px;
+                border: 1px solid #ddd;
+            }
+            .swatchly-review-notice-wrap{
                 border-left-color: #2271b1 !important;
                 display: flex;
                 justify-content: left;
                 align-items: center;
                 padding: 10px 0;
             }
-            .hastech-review-notice-content {
+            .swatchly-review-notice-content {
                 margin-left: 15px;
             }
-            .hastech-review-notice-action {
+            .swatchly-review-notice-action {
                 display: flex;
                 align-items: center;
                 padding-top: 10px;
             }
-            .hastech-review-notice-action span.dashicons {
+            .swatchly-review-notice-action span.dashicons {
                 font-size: 1.4em;
                 padding-left: 10px;
             }
-            .hastech-review-notice-action a {
+            .swatchly-review-notice-action a {
                 padding-left: 5px;
                 text-decoration: none;
             }
-            .hastech-review-notice-content h3 {
+            .swatchly-review-notice-content h3 {
                 margin: 0;
             }" );
             printf( '<script>%s</script>', "jQuery(document).ready( function($) {
-                $( '.hastech-admin-notice.is-dismissible' ).on( 'click', '.notice-dismiss,.hastech-notice-close', function(e) {
+                $( '.swatchly-admin-notice.is-dismissible' ).on( 'click', '.notice-dismiss,.swatchly-notice-close', function(e) {
                     e.preventDefault();
-                    let noticeWrap = $( this ).parents( '.hastech-admin-notice' ),
+                    let noticeWrap = $( this ).parents( '.swatchly-admin-notice' ),
                         noticeId = noticeWrap.attr( 'id' ) || '',
                         expireTime = noticeWrap.attr( 'expire-time' ) || '',
                         closeBy = noticeWrap.attr( 'close-by' ) || '',
@@ -224,6 +246,21 @@ if ( ! class_exists( 'Swatchly_Notices' ) ){
         }
 
         /**
+         * Get Notices By id
+         * @param [type] $notice_id
+         */
+        private function get_notice_by_id( $notice_id ) {
+			if ( empty( $notice_id ) ) {
+				return [];
+			}
+
+			$notices = $this->get_notices();
+			$notice  = wp_list_filter( $notices, [ 'id' => $notice_id ] );
+
+			return ! empty( $notice ) ? $notice[0] : [];
+		}
+
+        /**
          * Notice Prepare For Display
          *
          * @param [type] $notice_data
@@ -248,7 +285,7 @@ if ( ! class_exists( 'Swatchly_Notices' ) ){
             ];
             $notice = wp_parse_args( $notice_data, $defaults );
 
-            $classes = [ 'hastech-admin-notice' ];
+            $classes = [ 'swatchly-admin-notice' ];
 
             if ( isset( $notice['type'] ) ) {
                 $classes[] = 'notice-' . $notice['type'];
@@ -269,7 +306,7 @@ if ( ! class_exists( 'Swatchly_Notices' ) ){
                 $notice['data'] = ' expire-time=' . esc_attr( $notice['expire_time'] ) . ' ';
             }
 
-            $notice['id'] = 'hastech-notice-id-' . $notice['id'];
+            $notice['id'] = 'swatchly-notice-id-' . $notice['id'];
             $notice['classes'] = implode( ' ', $classes );
             $notice['data'] .= ' close-by=' . esc_attr( $notice['close_by'] ) . ' ';
 

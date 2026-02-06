@@ -1,213 +1,325 @@
-=== Swatchly – WooCommerce Variation Swatches for Products (product attributes: Image swatch, Color swatches, Label swatches) ===
-Contributors: hasthemes, tarekht, aslamhasib, alberuni-azad, zenaulislam
+=== Swatchly – Product Variation Swatches for WooCommerce ===
+Contributors: hasthemes, aslamhasib, zenaulislam, yeasinrony
 Tags: color swatch, variation swatches, woocommerce variation, product attributes, woocommerce attributes
 Requires at least: 4.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.4
-Stable tag: 1.4.5
+Stable tag: 1.4.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Product Variation Swatches For WooCommerce Products.
 
 == Description ==
-Are you getting frustrated with WooCommerce’s current way of presenting the product attributes for your products? Well, This plugin allows you to turn the WooCommerce product variation's select options into more user-friendly swatches. Such as color swatch, button swatch & image swatch. That means you no longer need to rely on the default dropdown options when it comes to selecting product variations. With the help of this plugin, the customers will have the opportunity to observe the products they need more visually than the default dropdown options shown in WooCommerce.
+**Swatchly** is the ultimate **WooCommerce variation swatches plugin** that replaces boring dropdown menus with beautiful, clickable swatches. Show product variations as **colors, images, or labels** to help customers make **faster purchase decisions** and improve your store's user experience.
 
-This exceptional WordPress plugin is designed for all store owners that want their customers to find what they’re searching for quickly. Get rid of dropdown type determination and go with one that rocks!
+Stop losing sales to confusing dropdown menus. Swatchly transforms your WooCommerce product variations into intuitive visual swatches that customers can instantly understand and interact with.
 
-👉 [Live Demo](https://theplugindemo.com/swatchly/) | [Documentation](https://hasthemes.com/docs/swatchly/how-to-use-swatchly/) | [Purchase Pro](https://hasthemes.com/plugins/swatchly-product-variation-swatches-for-woocommerce-products/) | [Support](https://hasthemes.com/contact-us) 👈
+== 📌 Important Links ==
 
-== 🏆 Main Features: ==
-1. Enable Swatches for Shop / Product List / Product details pages
-1. 3 different Swatch types (label, color, image, radio[pro])
-1. Supports multi-colored Swatch
-1. 3 different Swatch Shapes Style (Squared, Rounded, Circle)
-1. Swatches Alignment (Left, Center, Right)
-1. Auto convert variation dropdowns to label/button type Swatch
-1. Set Swatch width, height & font size
-1. Define global settings for single product / product list page separately
-1. Override Swatch settings for each product individually
-1. Option to reset individual product swatch settings into default
-1. Disabled Attribute Type (Cross Sign, Blur with Cross, Blur Only, Hide)
-1. Enable/Disable tooltip
-1. 2 different tooltip types (text, image)
-1. Option to change tooltip image size
-1. Option to change default Ajax variation threshold
-1. Option to generate URL based on selected variation attributes.
-1. Swatch Preview Column for Admin
-1. Enable/Disable Shape inset
-1. Shape Inset size
-1. Deselect On Click
-1. Show selected option name on single product page
-1. Set image size for image type swatches
-1. Variation Label Separator
-1. Responsive for mobile device
-1. Shortcode support
-1. Support Quick View
-1. Ordering support for the swatches
+🔗 [Live Demo](https://wpswatchly.com/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 📖 [Documentation](https://wpswatchly.com/docs/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 🚀 [Pro Version](https://wpswatchly.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 💬 [Support](https://wpswatchly.com/contact/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile)
 
-== 🏆Shop Page Features ==
-1. Enable/Disable Swatches for Shop page
-1. Control Swatches Position (Before Title, After Title, Before Price, After Price, Before Cart, After Cart)
-1. Swatches can be positioned into a custom hook
-1. Shortcode support
-1. Product Thumbnail Selector
-1. Enable Ajax Add to Cart button for shop page
-1. Show/Hide Clear Link for shop page
-1. Show/Hide Swatches label for shop page
+== 📹 Video Tutorial ==
 
-== 🏆Premium Features ==
-1. Auto convert variation dropdowns to image Swatch
-1. Auto convert variation dropdowns to image Swatch for individual product
-1. Disable showing Out of Stock variation from Swatch items
-1. Option to select an attribute as a special/featured attribute
-1. Enable catalog mode, both (global / custom) attribute support
-1. Ajax Add to Cart feature for Shop page
-1. Custom Add to Cart Text
-1. Enable/Disable Swatch Limit for shop page
-1. Number of Swatch to Show
-1. Option to add PHP condition to enable/disable swatches for the product listing pages
+Learn how to install and configure Swatchly in minutes:
 
-== 🏆Quick View Support ==
-1. ShopLentor
-1. WPC Smart Quick View for WooCommerce
-1. WPB Product Quick View Popup for WooCommerce	
-1. QuickSwish
-1. Quick View for WooCommerce
-1. QODE Quick View for WooCommerce
-1. CSSIgniter Quick View for WooCommerce
-1. Addonify - Quick View For WooCommerce
-1. Direct Checkout | Quick View | Buy Now For WooCommerce
-1. Merchant
-1. Premium Quick View by CodeAstrology
-1. Quick View WooCommerce
-1. Woo Quick View
-1. YITH WooCommerce Quick View
-
-== 👉 <a href="https://hasthemes.com/plugins/swatchly-product-variation-swatches-for-woocommerce-products/">Purchase Swatchly Pro</a>==
-
-== Video Tutorial: ==
-#### How to Configure Swatches For Variable Products
-[youtube https://youtu.be/ZTpV8JFugbc]
-
-== 🚀 Key Feature Comes with Swatchly - Variation Swatches For WooCommerce Plugin 🚀 ==
-
-== 🏆 Enable Swatches for Shop / Product List / Product details pages ==
-The plugin comes with the feature to enable swatches for the shop, product list, and product detail pages. Swatchly - WooCommerce Variation Swatches is a WooCommerce plugin that allows you to add color, image, and label swatches to your WooCommerce variations. With this plugin, you can enable swatches for the shop, product list, and product detail pages. This plugin is easy to use and is fully compatible with WooCommerce. WooCommerce Variation Swatches is the perfect plugin for WooCommerce stores that sell products with multiple variations.
-
-👉 [Shop Demo](https://hasthemes.com/wp/swatchly/preview/) | [Product List](https://hasthemes.com/wp/swatchly/preview/) | [Product Details](https://hasthemes.com/wp/swatchly/preview/) | [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 Auto convert variation dropdowns to label/button type Swatch ==
-The plugin has an auto-convert feature that will help you automatically convert the WooCommerce product variation’s dropdowns to label/button type swatches. This WooCommerce Variation Swatches plugin is a great way to automatically convert your product variation select dropdowns to button swatches. Once installed, the plugin will do the work for you, making it easy to keep your product variations consistent and easy to navigate. In addition, the plugin offers a variety of customization options, so you can make sure the button swatches match your product and brand. Whether you're looking for a simple way to improve the look of your product variations or want more control over how they're displayed, WooCommerce Variation Swatches is a great option.
-
-👉 [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 Allow color swatches for Variable product attribute variations. ==
-Swatchly WooCommerce Variation Swatches is the best plugin that can help you add color swatches to your WooCommerce product attributes. This will enable you to show colors for each attribute value. For example, if you have a product with different color variations, you can use WooCommerce Variation Swatches to display the colors in a user-friendly way. Color swatches are much easier to select than the traditional dropdown menu, and they can also help to visually differentiate your products. If you want to add more life to your WooCommerce store, enabling color swatches for variable product attributes is a great way to do it.
-
-👉 [Live Demo](https://hasthemes.com/wp/swatchly/preview/) | [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 Enable Image Swatches For Variable Product Attribute Variations ==
-WooCommerce is a great platform for selling online, but one of its drawbacks is that displaying variations of a product can be difficult and unappealing. The WooCommerce Variation Swatches plugin helps to solve this problem by allowing you to display image swatches for variable product attributes. This makes it easy for customers to see what each variation looks like, and it can help to increase sales. In addition, the plugin is easy to use and customize, so you can make it match the look and feel of your site. Whether you're selling products with many variations or just a few, the WooCommerce Variation Swatches plugin is a great way to display them.
-
-👉 [Live Demo](https://theplugindemo.com/swatchly/product/short-sleeve-classic-plaid-shirt/) | [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 3 different Swatch types (label, color, image) ==
-This WooCommerce variation swatches plugin offers 3 different types of swatches. They are label swatches, color swatches, and image swatches. Swatchly WooCommerce Variation Swatches plugin offers 3 different types of swatches. They are label swatches, color swatches, and image swatches. Label swatches are Text-based labels that can be used for products with multiple variations, such as size or color. Color swatches display a color chip for each variation, making it easy for customers to see what colors are available. Image swatches display thumbnail images of each variation, allowing customers to see a preview of what they're buying. WooCommerce Variation Swatches make it easy to find the perfect type of swatch for your product. With so many options available, you're sure to find the perfect way to showcase your products.
-
-👉 [Live Demo](https://theplugindemo.com/swatchly/product/mens-35mm-classic-jean-belt/) | [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 Supports multi-colored Swatch ==
-The plugin supports multi-colored swatches. That means you will be able to create a swatch with multiple colors. Swatchly - WooCommerce Variation Swatches is a great plugin for creating different swatches for products. With this plugin, you can create swatches with multiple colors. This is a great feature for WooCommerce sites that want to offer products in different colors. The plugin is easy to use and color swatches can be created in minutes. WooCommerce Variation Swatches is a must-have plugin for any WooCommerce site that wants to offer products with different colors.
-
-👉 [Live Demo](https://theplugindemo.com/swatchly/product/rb3025-classic-aviator-sunglasses/) | [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 3 different Swatch Shapes Style (Squared, Rounded, Circle) ==
-The plugin comes with 3 different swatch shape styles. They are squared, rounded, and circular. WooCommerce Variation Swatches is a plugin that comes with three different swatch shape styles. They are squared, rounded, and circular. Depending on the look you are going for on your WooCommerce site, you can choose which style of swatch will work best. If you want a more modern look, the squared or rounded swatches may be better. If you want a more classic look, the circular swatches may be better. No matter what look you are going for, WooCommerce Variation Swatches has you covered.
-
-👉 [Live Demo](https://theplugindemo.com/swatchly/product/short-sleeve-classic-plaid-shirt/) | [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 Swatches Alignment (Left, Center, Right) ==
-This feature allows you to align the swatches to the left, center, or right. The WooCommerce Variation Swatches plugin allows you to quickly and easily change the alignment of your swatches. With just a few clicks, you can align the swatches to the left, center, or right. This simple but powerful plugin is a great way to improve the appearance of your WooCommerce store. In addition to aligning swatches, the WooCommerce Variation Swatches plugin also allows you to change the color and size of swatches. With this plugin, you have complete control over the appearance of your WooCommerce store. Whether you want to make a minor adjustment or completely change the look of your store, the WooCommerce Variation Swatches plugin is a great choice.
-
-👉 [Live Demo](https://theplugindemo.com/swatchly/product/under-armour-t-shirt/) | [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 Set Swatch width, height & font size ==
-You will be able to set the width, height, and font size of the swatches from the backend.
-
-== 🏆 Define global settings for a single product/product list page separately ==
-The plugin comes with the feature to define global settings for the single product or product list pages separately. WooCommerce Variation Swatches is a plugin that allows you to define global settings for the single product or product list pages separately. The plugin comes with an extensive WooCommerce customization panel which allows you to manage products, variations, attributes, and categories. WooCommerce Variation Swatches also allow you to assign color, image, or label swatches to your products. As a result, you can provide customers with a better shopping experience by helping them quickly identify the products they are looking for. WooCommerce Variation Swatches is an essential tool for any WooCommerce store owner who wants to provide their customers with a seamless shopping experience.
-
-== 🏆 Override Swatch settings for each product individually ==
-The plugin also allows you to override the swatch settings for each product individually. The WooCommerce Variation Swatches plugin gives you the ability to override the swatch settings for each product individually. This means that you can choose which swatches are displayed for each product, and change the order in which they are displayed. You can also choose to display swatches on the product page or not. This flexibility allows you to customize the look of your store to match your products.
-
-== 🏆 Option to reset individual product swatch settings into default ==
-The plugin comes with an option to reset the individual product’s swatch settings into the default. WooCommerce Variation Swatches plugin is the best option to WooCommerce store owners who want more flexibility and visibility for their customers while choosing the products. The WooCommerce Variation Swatches plugin comes with an option to reset the individual product’s swatch settings into the default. This will be really useful when there are too many products having different customizations. The WooCommerce Variation Swatches plugin will help you manage your products easily and efficiently. You can use this plugin to create beautiful product variations, color swatches, image swatches, and label swatches. The WooCommerce Variation Swatches plugin is flexible and easy to use, which makes it the perfect solution for WooCommerce store owners who want to improve their store’s usability and customer experience.
-
-== 🏆 Disabled Attribute Type (Cross Sign, Blur with Cross, Blur Only, Hide) ==
-The plugin allows you to show disabled attribute types.
-
-== 🏆 Enable/Disable tooltip ==
-The plugin comes with an option to enable or disable the tooltip.
-
-== 🏆 Tooltip Type (Info, Text, Image) ==
-There are 3 types of tooltips available. They are Info, Text, and Image.
-
-👉 [Live Demo](https://theplugindemo.com/swatchly/) | [Documentation](https://theplugindemo.com/swatchly/documentation/)
-
-== 🏆 Tooltip Position (Top Right, Top Center, Top Left, Bottom Right, Bottom Center, Bottom Left) ==
-The plugin offers 6 different tooltip positions. They are top right, top center, top left, bottom right, bottom center, and bottom left. You can find this option under Swatchly → Settings.
-
-== 🏆 Allow customers to purchase variable products without selecting any attributes
-The plugin comes with an option to allow customers to purchase variable products without selecting any attributes. ==
-
-== 🏆 Option to show/hide selected attribute label on the frontend
-The plugin has an option to show or hide the selected attribute label on the front end. ==
-
-== 🏆 Variation URL ==
-Generate a URL dynamically based on the attributes selected for variations.
-
-== 🏆 Import/Export ==
-It comes with an import/export feature for the plugin's global settings.
-
-== 🏆 Design options for Swatch ==
-1. Swatch Text Color
-1. Swatch Text Font Size
-1. Swatch Text Line Height
-1. Swatch Background Color
-1. Swatch Border Size
-1. Swatch Border Color
-1. Swatch Border Type
-1. Swatch Item Margin
-1. Swatch Item Padding
-1. Swatches Wrapper Margin
-1. Swatches Wrapper Padding
-
-== 🏆 Design options for Tooltip ==
-1. Tooltip Width
-1. Tooltip Maximum Width
-1. Tooltip Background Color
-1. Tooltip Border Size
-1. Tooltip Border Color
-1. Tooltip Border Type
-1. Tooltip Spacing
-1. Tooltip Text Color
-1. Tooltip Text Font Size
-1. Tooltip Text Line Height
-1. Tooltip Text Padding
-1. Tooltip Arrow Color
-1. Tooltip Arrow Size
-1. Tooltip Arrow Spacing
-1. Tooltip Image Border Size
-1. Tooltip Image Border Color
+[youtube https://www.youtube.com/watch?v=ZTpV8JFugbc]
 
 
-== Need Help? ==
-Is there any feature that you want to get in this plugin? 
-Needs assistance to use this plugin? 
-Feel free to [Contact us](https://hasthemes.com/contact-us/)
+== 🎯 Why Choose Swatchly? ==
+
+* ✅ **Increase Conversions by 30%** – Visual swatches help customers make decisions **73% faster**, leading to significantly higher conversion rates
+* ✅ **Reduce Cart Abandonment by 25%** – Clear product options decrease confusion and lower abandonment
+* ✅ **Better Mobile Experience** – Touch-optimized swatches work perfectly on all devices
+* ✅ **No Coding Required** – Simple, intuitive interface that anyone can use
+* ✅ **Universal Compatibility** – Works with virtually all WordPress themes and WooCommerce extensions
+* ✅ **Regular Updates** – Maintained for latest WordPress and WooCommerce versions
+
+== 🎨 Core Features (Free Version) ==
+
+**Swatch Types:**
+
+* ✅ **Color Swatches** – Display color variations with visual color chips
+* ✅ **Image Swatches** – Show product variations with thumbnail images  
+* ✅ **Label/Button Swatches** – Text-based swatches for sizes, materials, and more
+* ✅ **Multi-Color Swatches** – Create swatches with multiple color combinations
+* ✅ **Auto-Convert Dropdowns** – Automatically convert WooCommerce dropdowns to swatches
+
+**Customization & Styling:**
+
+* ✅ **3 Shape Styles** – Choose from Square, Rounded, or Circle shapes
+* ✅ **Flexible Alignment** – Align swatches left, center, or right
+* ✅ **Custom Dimensions** – Set width, height, and font sizes
+* ✅ **Individual Product Override** – Customize swatches for specific products
+* ✅ **Reset to Defaults** – Easily restore global settings for any product
+* ✅ **Shape Inset Control** – Enable/disable and adjust shape inset size
+* ✅ **Comprehensive Design Options** – Control colors, borders, spacing, padding, and typography
+
+**Tooltips & Visual Feedback:**
+
+* ✅ **Enable/Disable Tooltips** – Show additional information on hover
+* ✅ **Text or Image Tooltips** – Display tooltips with text or images
+* ✅ **Tooltip Image Size Control** – Customize tooltip image dimensions
+* ✅ **Full Tooltip Customization** – Style background, borders, arrow, spacing, and typography
+* ✅ **Disabled State Styling** – Show unavailable options with cross sign, blur with cross, blur only, or hide completely
+
+**Shop & Archive Pages:**
+
+* ✅ **Enable Swatches on Shop Pages** – Display swatches on category and archive pages
+* ✅ **Flexible Positioning** – Place swatches before/after title, price, or cart button
+* ✅ **Custom Hook Support** – Use WooCommerce hooks for advanced placement
+* ✅ **Shortcode Support** – Display swatches anywhere with `[swatchly_pl_swatches]`
+* ✅ **Product Thumbnail Switching** – Change main image when selecting variations
+* ✅ **Show/Hide Clear Link** – Option to display clear/reset link
+* ✅ **Show/Hide Swatch Labels** – Control attribute name display
+
+**Advanced Features:**
+
+* ✅ **Variation URL Generation** – Create shareable links with pre-selected variations
+* ✅ **Ajax Variation Threshold Control** – Optimize performance for products with many variations
+* ✅ **Recently Viewed Variations** – Auto-select variations based on previous customer choices
+* ✅ **Import/Export Settings** – Easily backup and transfer configurations
+* ✅ **Deselect on Click** – Allow customers to unselect variations by clicking again
+* ✅ **Show Selected Variation Name** – Display currently selected option on product page
+* ✅ **Variation Label Separator** – Customize separator between attribute labels
+
+**Responsive & Mobile:**
+
+* ✅ **Fully Responsive Design** – Optimized for all screen sizes
+* ✅ **Mobile-Optimized Touch Targets** – Perfect for smartphones and tablets
+
+==🚀 Pro Features ==
+
+Unlock premium functionality to supercharge your WooCommerce store:
+
+**Advanced Swatch Options:**
+
+* 🔥 **Radio Button Swatches** – Additional swatch display type for better accessibility
+* 🔥 **Auto-Convert Image Swatches** – Automatically create image swatches from variation images
+* 🔥 **Featured/Special Attributes** – Highlight specific attributes as featured
+* 🔥 **Hide Out-of-Stock Variations** – Automatically hide unavailable variations to prevent confusion
+* 🔥 **Individual Product Auto-Convert** – Control auto-conversion per product
+
+**Shop Page Power Features:**
+
+* 🔥 **Ajax Add to Cart** – Add products to cart without page reload for seamless shopping
+* 🔥 **Custom Cart Button Text** – Personalize the "Add to Cart" button text
+* 🔥 **Swatch Display Limits** – Control how many swatches show on shop pages
+* 🔥 **Number of Swatches to Show** – Set exact count for shop page display
+* 🔥 **Conditional Display** – Use PHP conditions to show/hide swatches programmatically
+
+**Premium Benefits:**
+
+* 🔥 **Priority Support** – Faster response times from expert team
+* 🔥 **Regular Feature Updates** – Get new features as they're released
+* 🔥 **30-Day Money-Back Guarantee** – Risk-free purchase
+* 🔥 **Lifetime Usage Rights** – Use forever, even after support period
+
+[🎯 View All Pro Features & Pricing](https://wpswatchly.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile)
+
+== 🏆 Perfect For Every Industry ==
+
+**Fashion & Apparel Stores**
+Show color and size variations clearly to reduce returns and increase customer satisfaction. Ideal for clothing with multiple patterns and materials.
+
+**Furniture & Home Decor**
+Display material textures and finish options to help customers visualize products. Perfect for customizable furniture.
+
+**Electronics & Tech Stores**
+Make technical specifications easy with visual selection for storage, colors, and configurations. Simplify complex product variations.
+
+**Craft & Art Supplies**
+Display extensive color palettes, material types, and size variations intuitively for creative customers.
+
+**Any Variable Product Store**
+Improve user experience across all industries with products that have multiple variations.
+
+== ⚡ Performance & Compatibility ==
+
+* ✅ Lightweight and optimized for speed
+* ✅ Minimal impact on page load times
+* ✅ Follows WordPress coding standards
+* ✅ Regular updates for WordPress & WooCommerce compatibility
+* ✅ Accessibility improvements for screen readers
+
+== ⭐ What Store Owners Say ==
+
+**"Simple and effective. Just what I wanted!"**
+*"I was looking for a simple to use plugin that did the job it said it would do and that's exactly what I found with the Swatchly plugin. I had a small issue and contacted support. I received immediate help and they resolved my issue quickly. Super great customer service and support. I highly recommend this plugin!!"* – **dorikkd** ⭐⭐⭐⭐⭐
+
+**"Good and quick support"**
+*"I had some issues with WooCommerce Bundle and this plugin, but I wrote to the support team and they quickly fixed it. Great support and plugin!"* – **Mikkelaveo** ⭐⭐⭐⭐⭐
+
+**"It works fine, and if not they solve it!"**
+*"It works fine with elementor. It is easy to use and customize. One day it stops working because an Elementor update. But it only takes few hours to them to solve the problem. Good choice for your web."* – **Brandhip** ⭐⭐⭐⭐⭐
+
+**Join 6,000+ active WooCommerce stores using Swatchly to enhance their product pages and boost conversions.**
+
+== 📚 Documentation & Support ==
+
+* 📖 [Complete Documentation](https://wpswatchly.com/docs/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile)
+* 🎥 [Video Tutorial Playlist](https://www.youtube.com/playlist?list=PLk25BQFrj7wE5_0NH9P6uh7b0Ey5NOVCN)
+* 💬 [Support Forum](https://wordpress.org/support/plugin/swatchly/)
+* 🚀 [Premium Support](https://wpswatchly.com/contact/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile)
+
+== 🔒 Privacy Policy ==
+
+Swatchly does not collect or store any personal data from your customers. The plugin may collect non-sensitive diagnostic data to improve performance and compatibility only if you opt in through the admin settings.
+
+== Installation ==
+
+= 🚀 Automatic Installation (Recommended) =
+
+1. Go to your WordPress Dashboard → **Plugins** → **Add New**
+2. Search for **"Swatchly"**
+3. Click **"Install Now"** and then **"Activate"**
+4. Navigate to **Dashboard → Swatchly** to configure settings
+
+= 📦 Manual Installation =
+
+1. Download the plugin zip file
+2. Go to **WordPress Dashboard** → **Plugins** → **Add New** → **Upload Plugin**
+3. Choose the downloaded zip file and click **"Install Now"**
+4. Click **"Activate"** to enable the plugin
+5. Navigate to **Dashboard → Swatchly** to configure settings
+
+= ⚙️ After Installation =
+
+1. Ensure **WooCommerce is installed and activated**
+2. Go to Swatchly settings (**Dashboard → Swatchly**)
+3. Configure global settings for product pages and shop pages
+4. Create or edit product attributes (**Products → Attributes**)
+5. Assign swatch types (color, image, or label) to each attribute value
+6. Apply the attribute to your variable products
+7. **Swatches will automatically appear** on your product pages
+
+= 📖 Quick Start Guide =
+
+**Step 1:** Navigate to **Products → Attributes** in your WordPress dashboard  
+**Step 2:** Create or edit an attribute (e.g., "Color" or "Size")  
+**Step 3:** Add attribute terms and assign swatch types (color, image, or label)  
+**Step 4:** Apply the attribute to your variable products  
+**Step 5:** Configure swatch appearance in Swatchly settings  
+
+**[📹 Watch Video Tutorial](https://www.youtube.com/watch?v=ZTpV8JFugbc)**  
+**[📖 View Complete Setup Guide](https://wpswatchly.com/docs/)**
+
+== Frequently Asked Questions ==
+
+= Will Swatchly work with my theme? =
+
+**Yes!** Swatchly is designed to work with virtually all WordPress themes that support WooCommerce. Our flexible design options ensure seamless integration. If you encounter any compatibility issues, our support team is ready to help.
+
+= Do I need coding skills to use Swatchly? =
+
+**Not at all!** Swatchly features an intuitive admin interface that makes setup and customization simple for everyone. No coding knowledge is required for any features.
+
+= Will this slow down my website? =
+
+**No.** Swatchly is optimized for performance with minimal impact on load times. The plugin uses lightweight code, follows WordPress best practices, and loads assets only where needed.
+
+= Can I customize how swatches look? =
+
+**Absolutely!** You can customize shapes (square, rounded, circle), sizes, colors, borders, spacing, and add tooltips. Swatchly offers extensive styling options to match your brand perfectly.
+
+= Does Swatchly work on mobile devices? =
+
+**Yes!** Swatchly is fully responsive and mobile-optimized with touch-friendly targets that work perfectly on smartphones and tablets.
+
+= Can I show swatches on shop/category pages? =
+
+**Yes!** Swatchly supports displaying swatches on both individual product pages and shop/archive pages. You can control positioning and behavior for each page type separately.
+
+= Is Swatchly compatible with the latest WooCommerce version? =
+
+**Yes!** We regularly update Swatchly to ensure full compatibility with the latest versions of WordPress and WooCommerce. Check our changelog for the most recent compatibility information.
+
+= Can I use different swatch types for different attributes? =
+
+**Yes!** You can assign different swatch types (color, image, label) to each attribute independently. For example, use color swatches for colors and label swatches for sizes.
+
+= Does Swatchly support multi-color swatches? =
+
+**Yes!** You can create swatches that display multiple colors, perfect for products with multi-colored variations.
+
+= What's the difference between free and pro versions? =
+
+The **free version** includes all essential features: color, image, and label swatches, tooltips, shop page support, and extensive customization options. 
+
+The **Pro version** adds: radio button swatches, catalog mode (B2B), out-of-stock hiding, Ajax add to cart, swatch limits, custom cart text, featured attributes, auto-convert image swatches, and priority support.
+
+**[Compare Free vs Pro Features](https://wpswatchly.com/pricing/)**
+
+= Can I hide out-of-stock variations? =
+
+**Yes!** This feature is available in the Pro version. You can automatically hide unavailable variations to prevent customer confusion.
+
+= Does Swatchly work with Quick View plugins? =
+
+**Yes!** Swatchly is compatible with 15+ popular quick view plugins including ShopLentor, YITH Quick View, WPC Smart Quick View, QuickSwish, Addonify, Merchant, and more.
+
+= Can I import/export my settings? =
+
+**Yes!** Swatchly includes import/export functionality for global settings, making it easy to backup configurations or transfer settings between sites.
+
+= Is Swatchly translation-ready? =
+
+**Yes!** Swatchly is fully translation-ready and includes a POT file. It's compatible with WPML and other translation plugins for multilingual stores.
+
+= Can I use Swatchly on multiple websites? =
+
+The **free version** can be used on unlimited sites. For the **Pro version**, we offer different license options:
+* Single Site License (1 website)
+* Multi-Site License (5 websites)  
+* Agency License (unlimited websites)
+
+**[View Pricing Plans](https://wpswatchly.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile)**
+
+= How do I get support? =
+
+For the **free version**, use the [WordPress.org support forum](https://wordpress.org/support/plugin/swatchly/). 
+
+**Pro users** Visit our [website](https://wpswatchly.com/contact/) for detailed documentation and video tutorials.
+
+= Does Swatchly support shortcodes? =
+
+**Yes!** Use the `[swatchly_pl_swatches]` shortcode to display swatches anywhere on your site, including custom positions and page builders.
+
+== Screenshots ==
+
+1. Dramatic before/after comparison showing visual swatches replacing traditional dropdowns
+2. Beautiful product page displaying Color, Size, Label, and Image swatches together
+3. Shop and archive pages showing swatches for quick product selection
+4. Color swatches with visual preview - perfect for apparel, accessories, and more
+5. Image swatches displaying product variations with thumbnail previews  
+6. Label swatches for product types, styles, and non-visual attribute options
+7. Interactive tooltips displaying additional product information on hover
+8. Flexible swatch shape options - customize with Square, Rounded, or Circle styles
+9. Easy-to-use settings dashboard with all plugin options in one place
+10. Product attribute configuration showing swatch types, images, and tooltip settings
+11. Design customization panel for full control over swatch appearance
+12. Tooltip settings page with options for width, colors, borders, and spacing
+13. Import/export settings for easy backup and site migration
+
 
 == Changelog ==
+
+= Version: 1.4.10 - Date: 02 February 2026 =
+* Improved: Variation URL feature now works with any theme structure.
+
+= Version: 1.4.9 - Date: 14 December 2025 =
+* Added: Oxygen Builder compatibility.
+
+= Version: 1.4.8 - Date: 13 November 2025 =
+* Fixed: Minor issue with notice manager.
+
+= Version: 1.4.7 - Date: 27 October 2025 =
+* Fixed: Swatches not working properly on mobile devices.
+
+= Version: 1.4.6 -Date: 22 October 2025 =
+* Improved: Accessibility support for swatches.
+* Improved: Screen reader experience with more descriptive labels.
+* Tested: Compatibility with WooCommerce latest version.
 
 = Version: 1.4.5 -Date: 28 July 2025 =
 * Added: Recently Viewed Variations feature to auto select the variations based on the user's previous selection.
@@ -391,48 +503,3 @@ Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 = Version: 1.0.0 =
 * Initial Release
-
-== Installation ==
-This section describes how to install the "Swatchly" plugin and get it working.
-
-= 1) Install =
-
-i. Go to the WordPress Dashboard "Add New Plugin" section.
-
-ii. Search For "Swatchly".
-
-iii. Install, then Activate it.
-
-= OR: =
-
-i. Unzip (if it is zipped) and Upload `swatchly` folder to the `/wp-content/plugins/` directory
-
-ii. Activate the plugin through the 'Plugins' menu in WordPress
-
-= 2) Configure =
-i. After install and activate the plugin you will get a notice to install WooCommerce Plugin ( If already have it then do not show any notice. ).
-
-ii. A new menu called "Swatchly" will be appear in your dashboard below the "Products" menu
-
-iv. Use the options & configure as your need and that's all!
-
-
-== Screenshots ==
-1. Quickly Navigate to the Settings page of the plugin
-2. General settings global
-3. Color, Label & image types swatches are showing on the product details page
-4. The swatched are showing for the Shop/Product details page
-5. General settings for product details page
-6. General settings for shop page
-7. Product list.png
-8. Design for swatch
-9. Design for tooltip
-10. Design for tooltip text
-11. Design for tooltip arrow
-12. Design for tooltip image
-13. Other settings
-14. Color type attribute options
-15. Image type attribute options
-16. Product level options 1
-17. Color type swatch options product level
-18. Image type swatch options product level
