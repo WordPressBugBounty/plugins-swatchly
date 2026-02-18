@@ -109,7 +109,7 @@ class Woo_Config {
             if( $force ){
                 $this->enqueue_add_to_cart_variation_js();
             }
-        });
+        }, 999);
 
         add_filter('swatchly_force_load_add_to_cart_variation_js_file_in_shop', '__return_true');
     }
@@ -705,7 +705,7 @@ class Woo_Config {
         $html = '';
         ob_start();
         ?>
-            <form class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo esc_attr(absint( $product->get_id() )); ?>" data-product_url="<?php echo esc_url( $product_url ); ?>" data-product_variations="<?php echo esc_attr($variations_attr); // WPCS: XSS ok. ?>">
+            <form class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_id="<?php echo esc_attr(absint( $product->get_id() )); ?>" data-product_url="<?php echo esc_url( $product_url ); ?>" data-product_variations="<?php echo esc_attr($variations_attr); // WPCS: XSS ok. ?>">
 
                 <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
                     <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'swatchly' ) ) ); ?></p>
@@ -774,7 +774,7 @@ class Woo_Config {
         $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
         $product_url     = get_permalink( $product->get_id() );
         ?>
-            <div class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo esc_attr(absint( $product->get_id() )); ?>" data-product_url="<?php echo esc_url( $product_url ); ?>" data-product_variations="<?php echo esc_attr($variations_attr); // WPCS: XSS ok. ?>">
+            <div class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_id="<?php echo esc_attr(absint( $product->get_id() )); ?>" data-product_url="<?php echo esc_url( $product_url ); ?>" data-product_variations="<?php echo esc_attr($variations_attr); // WPCS: XSS ok. ?>">
 
                 <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
                     <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'swatchly' ) ) ); ?></p>

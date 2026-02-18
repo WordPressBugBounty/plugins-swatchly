@@ -4,7 +4,7 @@ Tags: color swatch, variation swatches, woocommerce variation, product attribute
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 5.4
-Stable tag: 1.4.10
+Stable tag: 1.4.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -303,6 +303,9 @@ For the **free version**, use the [WordPress.org support forum](https://wordpres
 
 
 == Changelog ==
+
+= Version: 1.4.11 - Date: 18 February 2026 =
+* Fixed: Compatibility issue with WPC Smart Quick View plugin.
 
 = Version: 1.4.10 - Date: 02 February 2026 =
 * Improved: Variation URL feature now works with any theme structure.

@@ -688,22 +688,44 @@
 										
 									}
 
-									// List all attribute values
-									$tr.find('select').find('option').each(function(index, option){
-										values.push( option.value );
-									});
-
-									// Disable unavailable swatches
-									$tr.find( 'div.swatchly-swatch' ).each( function() {
-										var $el_swatch = $( this ),
-											value = $el_swatch.attr( 'data-attr_value' );
-
-										if( values.indexOf( value ) == -1 ){
-											$el_swatch.addClass('swatchly-disabled');
-										} else {
-											$el_swatch.removeClass('swatchly-disabled');
+									// List all attribute values (skip empty placeholder option)
+									var $select = $tr.find('select');
+									$select.find('option').each(function(index, option){
+										if( option.value !== '' ){
+											values.push( option.value );
 										}
 									});
+
+									// Fallback: if select has no options (e.g. stripped by another plugin),
+									// try reading from the stored attribute_html
+									if( values.length === 0 ){
+										var attrHtml = $select.data('attribute_html');
+										if( attrHtml ){
+											$(attrHtml).filter('option').each(function(index, option){
+												if( option.value !== '' ){
+													values.push( option.value );
+												}
+											});
+										}
+									}
+
+									// If values is STILL empty, don't disable anything -
+									// showing all enabled is better than all disabled
+									if( values.length === 0 ){
+										$tr.find( 'div.swatchly-swatch' ).removeClass('swatchly-disabled');
+									} else {
+										// Disable unavailable swatches
+										$tr.find( 'div.swatchly-swatch' ).each( function() {
+											var $el_swatch = $( this ),
+												value = $el_swatch.attr( 'data-attr_value' );
+
+											if( values.indexOf( value ) == -1 ){
+												$el_swatch.addClass('swatchly-disabled');
+											} else {
+												$el_swatch.removeClass('swatchly-disabled');
+											}
+										});
+									}
 
 								}); // tbody tr each
 							}, 100 ); // timeout

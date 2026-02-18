@@ -14,6 +14,17 @@
 		self.$resetVariations     = $form.find( '.reset_variations' );
 		self.$product             = $form.closest( '.product' );
 		self.variationData        = $form.data( 'product_variations' );
+
+		// Guard: if jQuery returned a string instead of an array (e.g. due to complex HTML in variation data),
+		// try to parse it. If parsing fails, fall back to AJAX mode.
+		if ( typeof self.variationData === 'string' ) {
+			try {
+				self.variationData = JSON.parse( self.variationData );
+			} catch ( e ) {
+				self.variationData = false;
+			}
+		}
+
 		self.useAjax              = false === self.variationData;
 		self.xhr                  = false;
 		self.loading              = true;
@@ -529,6 +540,9 @@
 	 */
 	VariationForm.prototype.findMatchingVariations = function( variations, attributes ) {
 		var matching = [];
+		if ( ! Array.isArray( variations ) ) {
+			return matching;
+		}
 		for ( var i = 0; i < variations.length; i++ ) {
 			var variation = variations[i];
 
