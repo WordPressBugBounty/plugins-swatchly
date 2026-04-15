@@ -120,7 +120,7 @@
 
 	// Reset to the initial price
 	$.fn.reset_to_default_price = function(){
-		$(this).find('.price').first().removeClass('swatchly_d_none');
+		$(this).find('.price, .wc-block-components-product-price').first().removeClass('swatchly_d_none');
 		$(this).find('.swatchly_price').remove();
 	};
 
@@ -283,7 +283,8 @@
 
 	// Function for each loop variation form
 	$.fn.swatchly_loop_variation_form = function(){
-		var $price_selector = '.price';
+		// Classic themes use `.price`; block themes' Product Price block uses `.wc-block-components-product-price`.
+		var $price_selector = '.price, .wc-block-components-product-price';
 
 		return this.each( function(){
 			var $el_variation_form = $( this ),
@@ -688,24 +689,68 @@
 										
 									}
 
-									// List all attribute values (skip empty placeholder option)
 									var $select = $tr.find('select');
-									$select.find('option').each(function(index, option){
-										if( option.value !== '' ){
-											values.push( option.value );
+									var attribute_name = $select.data('attribute_name') || $select.attr('name');
+									var variationData = $el_variation_form.data('product_variations');
+
+									// Collect chosen values of OTHER attributes so we respect multi-attribute constraints
+									var chosenAttributes = {};
+									$el_variation_form.find('.variations select').each(function(){
+										var $s = $(this),
+											name = $s.data('attribute_name') || $s.attr('name'),
+											val = $s.val() || '';
+										if( name && name !== attribute_name ){
+											chosenAttributes[ name ] = val;
 										}
 									});
 
-									// Fallback: if select has no options (e.g. stripped by another plugin),
-									// try reading from the stored attribute_html
-									if( values.length === 0 ){
-										var attrHtml = $select.data('attribute_html');
-										if( attrHtml ){
-											$(attrHtml).filter('option').each(function(index, option){
-												if( option.value !== '' ){
-													values.push( option.value );
+									// Primary path: consult product_variations JSON for stock/purchasability
+									if( Array.isArray(variationData) && variationData.length ){
+										$select.find('option').each(function(index, option){
+											if( option.value === '' ){ return; }
+											var value = option.value;
+											var hasAvailable = false;
+											for( var i = 0; i < variationData.length; i++ ){
+												var v = variationData[i];
+												if( !v || !v.attributes ){ continue; }
+												if( !v.is_in_stock || !v.is_purchasable ){ continue; }
+												// Variation's value for THIS attribute ('' means "Any")
+												var vAttrVal = v.attributes[ attribute_name ];
+												if( vAttrVal !== '' && vAttrVal !== value ){ continue; }
+												// Other chosen attributes must be compatible
+												var mismatch = false;
+												for( var otherName in chosenAttributes ){
+													var chosen = chosenAttributes[ otherName ];
+													if( chosen === '' ){ continue; }
+													var otherVal = v.attributes[ otherName ];
+													if( otherVal !== '' && otherVal !== chosen ){ mismatch = true; break; }
 												}
-											});
+												if( !mismatch ){ hasAvailable = true; break; }
+											}
+											if( hasAvailable ){
+												values.push( value );
+											}
+										});
+									} else {
+										// Fallback (e.g. AJAX variation mode): use the select's current options,
+										// excluding ones WooCommerce has disabled.
+										$select.find('option:not(:disabled)').each(function(index, option){
+											if( option.value !== '' ){
+												values.push( option.value );
+											}
+										});
+
+										// Secondary fallback: if select has no options (stripped by another plugin),
+										// read from the stored attribute_html reference set.
+										if( values.length === 0 ){
+											var attrHtml = $select.data('attribute_html');
+											if( attrHtml ){
+												$(attrHtml).filter('option').each(function(index, option){
+													if( option.value !== '' ){
+														values.push( option.value );
+													}
+												});
+											}
 										}
 									}
 
@@ -731,7 +776,7 @@
 							}, 100 ); // timeout
 
 							// Update price for product loop
-							var $price_selector = '.price',
+							var $price_selector = '.price, .wc-block-components-product-price',
 								$el_product = builderCompat.findProductContainer($el_variation_form);
 							if(!swatchly_params.is_product){
 								if($el_product.find('.swatchly_price').length){
@@ -930,4 +975,60 @@
 			single_product.init();
 		});
 	});
+
+	/**
+	 * 8. Block-theme Query Loop pagination (WP Interactivity API) + generic fetch-based DOM replacement.
+	 *    jQuery's ajaxComplete does not fire for native fetch(), so new swatches on paginated
+	 *    pages never get initialized. Watch the DOM for added variation/loop forms and reinit.
+	 */
+	if ( typeof window.MutationObserver !== 'undefined' ) {
+		var swatchlyReinitScheduled = false;
+		var swatchlyReinit = function() {
+			swatchlyReinitScheduled = false;
+			if ( ! document.querySelector(
+				'.variations_form:not(.swatchly_initialized), .swatchly_loop_variation_form:not(.swatchly_loaded_on_ready), .variations_form:not(.swatchly_wc_initialized)'
+			) ) {
+				return;
+			}
+			try {
+				// Initialize WooCommerce's own VariationForm on any new .variations_form
+				// (needed for native-fetch pagination since ajaxComplete does not fire).
+				if ( typeof window.wc_add_to_cart_variation_params !== 'undefined' ) {
+					$( '.variations_form:not(.swatchly_wc_initialized)' ).each( function() {
+						$( this ).addClass( 'swatchly_wc_initialized' ).wc_variation_form();
+					});
+				}
+				product_loop.prevent_click();
+				product_loop.init_variation_form();
+				single_product.init();
+			} catch ( e ) { /* noop */ }
+		};
+		var swatchlyScheduleReinit = function() {
+			if ( swatchlyReinitScheduled ) { return; }
+			swatchlyReinitScheduled = true;
+			( window.requestAnimationFrame || function( fn ){ setTimeout( fn, 16 ); } )( swatchlyReinit );
+		};
+		var swatchlyDomObserver = new MutationObserver( function( mutations ) {
+			for ( var i = 0; i < mutations.length; i++ ) {
+				var added = mutations[ i ].addedNodes;
+				if ( ! added || ! added.length ) { continue; }
+				for ( var j = 0; j < added.length; j++ ) {
+					var node = added[ j ];
+					if ( node.nodeType !== 1 ) { continue; }
+					if (
+						( node.matches && node.matches( '.variations_form, .swatchly_loop_variation_form' ) ) ||
+						( node.querySelector && node.querySelector( '.variations_form, .swatchly_loop_variation_form' ) )
+					) {
+						swatchlyScheduleReinit();
+						return;
+					}
+				}
+			}
+		});
+		$( document ).ready( function() {
+			if ( document.body ) {
+				swatchlyDomObserver.observe( document.body, { childList: true, subtree: true } );
+			}
+		});
+	}
 })(jQuery);

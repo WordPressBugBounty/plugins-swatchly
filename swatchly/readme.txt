@@ -4,7 +4,7 @@ Tags: color swatch, variation swatches, woocommerce variation, product attribute
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 5.4
-Stable tag: 1.4.12
+Stable tag: 1.4.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -303,6 +303,10 @@ For the **free version**, use the [WordPress.org support forum](https://wordpres
 
 
 == Changelog ==
+
+= Version: 1.4.13 - Date: 15 April 2026 =
+* Fixed: Out-of-stock swatches were not marked as disabled on products with a single variation attribute.
+* Fixed: Swatches stopped working after pagination on block themes using the Query Loop block (WP Interactivity API).
 
 = Version: 1.4.12 - Date: 26 February 2026 =
 * Improved: Admin notice display.
