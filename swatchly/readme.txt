@@ -2,9 +2,9 @@
 Contributors: hasthemes, aslamhasib, zenaulislam, yeasinrony
 Tags: color swatch, variation swatches, woocommerce variation, product attributes, woocommerce attributes
 Requires at least: 4.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 5.4
-Stable tag: 1.4.13
+Stable tag: 1.4.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,10 @@ Product Variation Swatches For WooCommerce Products.
 **Swatchly** is the ultimate **WooCommerce variation swatches plugin** that replaces boring dropdown menus with beautiful, clickable swatches. Show product variations as **colors, images, or labels** to help customers make **faster purchase decisions** and improve your store's user experience.
 
 Stop losing sales to confusing dropdown menus. Swatchly transforms your WooCommerce product variations into intuitive visual swatches that customers can instantly understand and interact with.
+
+See Swatchly in action:
+
+[youtube https://www.youtube.com/watch?v=Ck-z0RclLig]
 
 == 📌 Important Links ==
 
@@ -303,6 +307,10 @@ For the **free version**, use the [WordPress.org support forum](https://wordpres
 
 
 == Changelog ==
+
+= Version: 1.4.14 - Date: 16 August 2026 =
+* Fixed: Cross-Site Scripting (XSS) issue where an unescaped `attribute_*` URL parameter could be rendered as HTML in the selected variation name.
+* Improved: Escaping of swatch data attributes, tooltip markup and inline swatch styles.
 
 = Version: 1.4.13 - Date: 15 April 2026 =
 * Fixed: Out-of-stock swatches were not marked as disabled on products with a single variation attribute.

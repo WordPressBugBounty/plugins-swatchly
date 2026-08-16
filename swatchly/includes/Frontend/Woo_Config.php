@@ -260,8 +260,8 @@ class Woo_Config {
         /* translators: %s: Attribute label (e.g., Color, Size) */
         $attr_aria_label = $accessibility_enabled ? "aria-label='" . esc_attr(sprintf(__('Select %s', 'swatchly'), $attribute_label)) . "'" : '';
 
-        $attr_class = "class='swatchly-type-wrap swatchly-shape-type-$shape_style swatchly-type-$swatch_type $inset_class swatchly-$disabled_attribute_type_class $featured_class $hide_this_variation_row_class'";
-        $attr_default_attr_value  = "data-default_attr_value='$current_term_label'";
+        $attr_class = "class='swatchly-type-wrap swatchly-shape-type-" . esc_attr($shape_style) . " swatchly-type-" . esc_attr($swatch_type) . " " . esc_attr($inset_class) . " swatchly-" . esc_attr($disabled_attribute_type_class) . " " . esc_attr($featured_class) . " " . esc_attr($hide_this_variation_row_class) . "'";
+        $attr_default_attr_value  = "data-default_attr_value='" . esc_attr( $current_term_label ) . "'";
         $html .= "<div $attr_class $attr_default_attr_value $attr_role $attr_aria_label>";
 
             if ( taxonomy_exists( $taxonomy ) ) {
@@ -400,8 +400,8 @@ class Woo_Config {
                     // HTML Markup
                     $tooltip_image      = wp_get_attachment_image_url( $tooltip_image, $tooltip_image_size );
                     $attr_class         = "class='swatchly-swatch $selected_class'";
-                    $attr_value         = "data-attr_value='$term->slug'";
-                    $attr_label         = "data-attr_label='$term->name'";
+                    $attr_value         = "data-attr_value='" . esc_attr( $term->slug ) . "'";
+                    $attr_label         = "data-attr_label='" . esc_attr( $term->name ) . "'";
                     $attr_tooltip_text  = $tooltip && $tooltip_text ? 'data-tooltip_text="'. esc_attr($tooltip_text) .'"' : '';
                     $attr_tooltip_image = $tooltip && $tooltip_image ? 'data-tooltip_image="'. esc_attr($tooltip_image) .'"' : '';
 
@@ -425,10 +425,10 @@ class Woo_Config {
                     }
 
                     if($swatch_type == 'color'){
-                        $attr_inline_style = $background_color ? "style='background-color: $background_color;'" : '';
+                        $attr_inline_style = $background_color ? "style='background-color: " . esc_attr($background_color) . ";'" : '';
 
                         if($enable_multi_color){
-                            $attr_inline_style = $background_color_2 ? "style='background: linear-gradient(-50deg, $background_color 50%, $background_color_2 50%);'" : '';
+                            $attr_inline_style = $background_color_2 ? "style='background: linear-gradient(-50deg, " . esc_attr($background_color) . " 50%, " . esc_attr($background_color_2) . " 50%);'" : '';
                         }
 
                         $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
@@ -456,7 +456,8 @@ class Woo_Config {
                             $attr_tooltip_image = $tooltip && $background_image ? 'data-tooltip_image="'. esc_attr($background_image) .'"' : '';
                         }
 
-                        $attr_inline_style  = $background_image ? " style='background-image: url( $background_image );'" : '';
+                        $background_image_url = esc_url( $background_image );
+                        $attr_inline_style    = $background_image_url ? " style='background-image: url( \"" . $background_image_url . "\" );'" : '';
 
                         $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
                             $html .= '<span class="swatchly-content"></span>';
@@ -569,8 +570,8 @@ class Woo_Config {
 
                     $tooltip_image      = wp_get_attachment_image_url( $tooltip_image, $tooltip_image_size );
                     $attr_class         = "class='swatchly-swatch $selected_class'";
-                    $attr_label         = "data-attr_label='$variation_name'";
-                    $attr_value         = "data-attr_value='$variation_name'";
+                    $attr_label         = "data-attr_label='" . esc_attr( $variation_name ) . "'";
+                    $attr_value         = "data-attr_value='" . esc_attr( $variation_name ) . "'";
                     $attr_tooltip_text  = $tooltip && $tooltip_text ? 'data-tooltip_text="'. esc_attr($tooltip_text) .'"' : '';
                     $attr_tooltip_image = $tooltip && $tooltip_image ? 'data-tooltip_image="'. esc_attr($tooltip_image) .'"' : '';
 
@@ -594,10 +595,10 @@ class Woo_Config {
                     }
 
                     if($swatch_type == 'color'){
-                        $attr_inline_style = $background_color ? "style='background-color: $background_color;'" : '';
+                        $attr_inline_style = $background_color ? "style='background-color: " . esc_attr($background_color) . ";'" : '';
 
                         if($enable_multi_color){
-                            $attr_inline_style = $background_color_2 ? "style='background: linear-gradient(-50deg, $background_color 50%, $background_color_2 50%);'" : '';
+                            $attr_inline_style = $background_color_2 ? "style='background: linear-gradient(-50deg, " . esc_attr($background_color) . " 50%, " . esc_attr($background_color_2) . " 50%);'" : '';
                         }
 
                         $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
@@ -621,7 +622,8 @@ class Woo_Config {
                             $swatch_image_size  = $tooltip_image_size;
                             $attr_tooltip_image = $tooltip && $background_image ? 'data-tooltip_image="'. esc_attr($background_image) .'"' : '';
                         }
-                        $attr_inline_style  = $background_image ? " style='background-image: url( $background_image );'" : '';
+                        $background_image_url = esc_url( $background_image );
+                        $attr_inline_style    = $background_image_url ? " style='background-image: url( \"" . $background_image_url . "\" );'" : '';
 
                         $html .= "<div $attr_class $attr_inline_style $attr_tooltip_text $attr_tooltip_image $attr_label $attr_value $attr_role $attr_tabindex $attr_aria_checked $attr_aria_label>";
                             $html .= '<span class="swatchly-content"></span>';
