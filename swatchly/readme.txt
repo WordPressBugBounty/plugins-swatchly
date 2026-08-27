@@ -2,9 +2,9 @@
 Contributors: hasthemes, aslamhasib, zenaulislam, yeasinrony
 Tags: color swatch, variation swatches, woocommerce variation, product attributes, woocommerce attributes
 Requires at least: 4.0
-Tested up to: 7.0
-Requires PHP: 5.4
-Stable tag: 1.4.14
+Tested up to: 7.1
+Requires PHP: 7.4
+Stable tag: 1.4.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,8 @@ See Swatchly in action:
 == 📌 Important Links ==
 
 🔗 [Live Demo](https://wpswatchly.com/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 📖 [Documentation](https://wpswatchly.com/docs/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 🚀 [Pro Version](https://wpswatchly.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 💬 [Support](https://wpswatchly.com/contact/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile)
+
+🔥 **Limited-Time Offer — Lifetime Deal: $199** (was $399) · **Save 50%** · unlimited websites, yours forever. 👉 [See the Offer](https://wpswatchly.com/pricing/?plan=agency-lifetime&utm_source=wprepo&utm_medium=readme&utm_campaign=swatchly_lifetime_aug2026&utm_content=readme-offer#pricing) — ends August 31.
 
 == 📹 Video Tutorial ==
 
@@ -307,6 +309,11 @@ For the **free version**, use the [WordPress.org support forum](https://wordpres
 
 
 == Changelog ==
+
+= Version: 1.4.15 - Date: 27 August 2026 =
+- Fixed: Recommended Plugins page grid collapsed to a single column on newer WordPress versions.
+- Fixed: A few minor issues.
+- Tested: Compatibility with the latest version of WordPress.
 
 = Version: 1.4.14 - Date: 16 August 2026 =
 * Fixed: Cross-Site Scripting (XSS) issue where an unescaped `attribute_*` URL parameter could be rendered as HTML in the selected variation name.
