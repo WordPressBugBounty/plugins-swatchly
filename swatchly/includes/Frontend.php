@@ -65,6 +65,7 @@ class Frontend {
         $tooltip                         = swatchly_get_option('tooltip', null, 'pl');
         $deselect_on_click               = swatchly_get_option('deselect_on_click', null, 'pl');
         $show_selected_attribute_name    = swatchly_get_option('show_selected_attribute_name', null, 'pl');
+        $enable_out_of_stock_swatch_selection = swatchly_get_option('enable_out_of_stock_swatch_selection', null, 'pl');
         $variation_label_separator       = swatchly_get_option('variation_label_separator', null, 'pl');
         $product_thumbnail_selector      = swatchly_get_option('pl_product_thumbnail_selector');
         $hide_wc_forward_button          = swatchly_get_option('pl_hide_wc_forward_button');
@@ -85,6 +86,7 @@ class Frontend {
             $tooltip                         = swatchly_get_option('tooltip', null, 'sp');
             $deselect_on_click               = swatchly_get_option('deselect_on_click', null, 'sp');
             $show_selected_attribute_name    = swatchly_get_option('show_selected_attribute_name', null, 'sp');
+            $enable_out_of_stock_swatch_selection = swatchly_get_option('enable_out_of_stock_swatch_selection', null, 'sp');
         }
 
         $localize_vars = array(
@@ -94,6 +96,7 @@ class Frontend {
             'tooltip'                         => $tooltip,
             'deselect_on_click'               => $deselect_on_click,
             'show_selected_attribute_name'    => $show_selected_attribute_name,
+            'enable_out_of_stock_swatch_selection' => $enable_out_of_stock_swatch_selection,
             'variation_label_separator'       => $variation_label_separator,
             'product_thumbnail_selector'      => $product_thumbnail_selector,
             'hide_wc_forward_button'          => $hide_wc_forward_button,

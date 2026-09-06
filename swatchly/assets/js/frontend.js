@@ -712,8 +712,13 @@
 										}
 									});
 
-									// Primary path: consult product_variations JSON for stock/purchasability
+									// Primary path: consult product_variations JSON for combo validity/purchasability.
+									// Out-of-stock combos stay disabled by default (previous/existing behavior) unless
+									// the merchant opted into "enable_out_of_stock_swatch_selection", in which case
+									// out-of-stock-but-valid combos stay clickable so customers can still click through
+									// to see price + "out of stock" message, matching core WooCommerce.
 									if( Array.isArray(variationData) && variationData.length ){
+										var allowOutOfStockSelection = window.swatchly_params ? Boolean(Number(swatchly_params.enable_out_of_stock_swatch_selection)) : false;
 										$select.find('option').each(function(index, option){
 											if( option.value === '' ){ return; }
 											var value = option.value;
@@ -721,7 +726,8 @@
 											for( var i = 0; i < variationData.length; i++ ){
 												var v = variationData[i];
 												if( !v || !v.attributes ){ continue; }
-												if( !v.is_in_stock || !v.is_purchasable ){ continue; }
+												if( !v.is_purchasable ){ continue; }
+												if( !allowOutOfStockSelection && !v.is_in_stock ){ continue; }
 												// Variation's value for THIS attribute ('' means "Any")
 												var vAttrVal = v.attributes[ attribute_name ];
 												if( vAttrVal !== '' && vAttrVal !== value ){ continue; }

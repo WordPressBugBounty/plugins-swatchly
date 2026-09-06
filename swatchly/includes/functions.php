@@ -36,6 +36,7 @@ function swatchly_get_option( $option_name = '', $default = null, $override_for 
         'show_selected_attribute_name',
         'disabled_attribute_type',
         'disable_out_of_stock',
+        'enable_out_of_stock_swatch_selection',
     );
 
     if($override_for == 'sp' && isset($options['sp_override_global']) && $options['sp_override_global']){

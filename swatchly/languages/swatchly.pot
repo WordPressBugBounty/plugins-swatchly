@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Swatchly - Variation Swatches for WooCommerce Products\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-27 08:13+0000\n"
+"POT-Creation-Date: 2026-09-06 08:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,8 +16,8 @@ msgstr ""
 "X-Loco-Version: 2.8.8; wp-7.1; php-8.4.18\n"
 "X-Domain: swatchly"
 
-#: includes/Admin/Global_Settings.php:275
-#: includes/Admin/Global_Settings.php:464
+#: includes/Admin/Global_Settings.php:278
+#: includes/Admin/Global_Settings.php:475
 msgid " : "
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "-------"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:132
+#: includes/Admin/Global_Settings.php:135
 msgid ""
 "<b>Read Me!</b> <br><br> All of the Global options below will be applied for "
 "the both \"Product Details\" & \"Product List/Shop\" page. <br> But all the "
@@ -57,13 +57,13 @@ msgid ""
 "Product Details Page\" or \"For Product List/Shop page\" Tab differently."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:727
+#: includes/Admin/Global_Settings.php:756
 msgid ""
 "<code>[swatchly_pl_swatches]</code> Use this shortcode into your theme/child "
 "theme to place the swatches."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:795
+#: includes/Admin/Global_Settings.php:824
 msgid ""
 "<div class=\"swatchly_catalog_mode_help_text\">Select & add the <strong>"
 "global/custom</strong> attributes below, that you want to show into the shop "
@@ -81,8 +81,8 @@ msgid ""
 "today!"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:910
-#: includes/Admin/Global_Settings.php:1104
+#: includes/Admin/Global_Settings.php:939
+#: includes/Admin/Global_Settings.php:1133
 msgid ""
 "<strong>Margin & Padding</strong> <br> Swatch Item -> represents each "
 "individual swatch item. <br> Swatches Wrapper -> represents the container "
@@ -124,8 +124,8 @@ msgctxt "Active plugin installations"
 msgid "Less Than 10"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:796
-#: includes/Admin/Global_Settings.php:819
+#: includes/Admin/Global_Settings.php:825
+#: includes/Admin/Global_Settings.php:848
 msgid "Add New Attribute"
 msgstr ""
 
@@ -133,27 +133,27 @@ msgstr ""
 msgid "Add to Cart"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:838
+#: includes/Admin/Global_Settings.php:867
 msgid "Add to Cart Text"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:710
+#: includes/Admin/Global_Settings.php:739
 msgid "After Cart"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:708
+#: includes/Admin/Global_Settings.php:737
 msgid "After Price"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:706
+#: includes/Admin/Global_Settings.php:735
 msgid "After Title"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:825
+#: includes/Admin/Global_Settings.php:854
 msgid "Ajax Add to Cart Behavior"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:222
+#: includes/Admin/Global_Settings.php:225
 msgid "Ajax Variation Threshold"
 msgstr ""
 
@@ -165,15 +165,15 @@ msgstr ""
 msgid "Auto convert Dropdown to Image Swatch (If variation has image)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:152
-#: includes/Admin/Global_Settings.php:335
-#: includes/Admin/Global_Settings.php:526
+#: includes/Admin/Global_Settings.php:155
+#: includes/Admin/Global_Settings.php:346
+#: includes/Admin/Global_Settings.php:546
 msgid "Auto Convert Dropdowns To Image"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:145
-#: includes/Admin/Global_Settings.php:327
-#: includes/Admin/Global_Settings.php:518
+#: includes/Admin/Global_Settings.php:148
+#: includes/Admin/Global_Settings.php:338
+#: includes/Admin/Global_Settings.php:538
 msgid "Auto Convert Dropdowns To Label"
 msgstr ""
 
@@ -181,45 +181,45 @@ msgstr ""
 msgid "Auto convert Dropdowns to Label type Swatch."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:153
-#: includes/Admin/Global_Settings.php:336
-#: includes/Admin/Global_Settings.php:527
+#: includes/Admin/Global_Settings.php:156
+#: includes/Admin/Global_Settings.php:347
+#: includes/Admin/Global_Settings.php:547
 msgid ""
 "Automatically convert dropdowns to \"Image Swatch\" if variation has an "
 "image."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:328
+#: includes/Admin/Global_Settings.php:339
 msgid ""
 "Automatically convert dropdowns to \"label swatch\" by default, for the "
 "\"product details\" page."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:519
+#: includes/Admin/Global_Settings.php:539
 msgid ""
 "Automatically convert dropdowns to \"label swatch\" by default, for the "
 "\"product list/shop\" page."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:146
+#: includes/Admin/Global_Settings.php:149
 msgid "Automatically convert dropdowns to \"label swatch\" by default."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:170
-#: includes/Admin/Global_Settings.php:355
-#: includes/Admin/Global_Settings.php:546
+#: includes/Admin/Global_Settings.php:173
+#: includes/Admin/Global_Settings.php:366
+#: includes/Admin/Global_Settings.php:566
 msgid "Automatically select recently viewed variations."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:709
+#: includes/Admin/Global_Settings.php:738
 msgid "Before Cart"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:707
+#: includes/Admin/Global_Settings.php:736
 msgid "Before Price"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:705
+#: includes/Admin/Global_Settings.php:734
 msgid "Before Title"
 msgstr ""
 
@@ -227,15 +227,15 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:287
-#: includes/Admin/Global_Settings.php:476
-#: includes/Admin/Global_Settings.php:650
+#: includes/Admin/Global_Settings.php:290
+#: includes/Admin/Global_Settings.php:487
+#: includes/Admin/Global_Settings.php:670
 msgid "Blur"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:286
-#: includes/Admin/Global_Settings.php:475
-#: includes/Admin/Global_Settings.php:649
+#: includes/Admin/Global_Settings.php:289
+#: includes/Admin/Global_Settings.php:486
+#: includes/Admin/Global_Settings.php:669
 msgid "Blur With Cross"
 msgstr ""
 
@@ -250,14 +250,14 @@ msgstr ""
 msgid "By "
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:504
+#: includes/Admin/Global_Settings.php:524
 msgid ""
 "By checking this box, the \"Global\" Settings will not work for the Product "
 "List/Shop page. Instead you can control all \"Global\" settings for the "
 "Product List/Shop page below."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:313
+#: includes/Admin/Global_Settings.php:324
 msgid ""
 "By checking this box, the Settings in the \"Global\" tab will not work for "
 "the Product Details page. Instead you can control all \"Global\" settings "
@@ -268,11 +268,20 @@ msgstr ""
 msgid "By checking this will enable you to set multiple color."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:789
+#: includes/Admin/Global_Settings.php:818
 msgid ""
 "By default, all attributes are shown on the shop page. If you want to show "
 "only specific attribute(s) instead of showing all. <br> This is where you "
 "can use the \"Catalog Mode\" for the shop page."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:300
+#: includes/Admin/Global_Settings.php:498
+#: includes/Admin/Global_Settings.php:681
+msgid ""
+"By default, an out-of-stock variation swatch stays disabled/non-clickable "
+"(previous behavior). Enable this to let customers click an out-of-stock "
+"swatch to see its price and the \"out of stock\" message."
 msgstr ""
 
 #: includes/Admin/Attribute_Taxonomy_Metabox.php:66
@@ -281,7 +290,7 @@ msgid ""
 "custom tooltip text, put it here."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:694
+#: includes/Admin/Global_Settings.php:723
 msgid "Center"
 msgstr ""
 
@@ -301,12 +310,12 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:773
+#: includes/Admin/Global_Settings.php:802
 msgid "Conditionally Enable/Disable swatches for the product listing pages"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1322
-#: includes/Admin/Global_Settings.php:1467
+#: includes/Admin/Global_Settings.php:1351
+#: includes/Admin/Global_Settings.php:1496
 msgid "Control the spacing between swatch item & tooltip. Default: 130%"
 msgstr ""
 
@@ -323,39 +332,39 @@ msgstr ""
 msgid "CourseGlade LMS – Online Course & eLearning Platform"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:285
-#: includes/Admin/Global_Settings.php:474
-#: includes/Admin/Global_Settings.php:648
+#: includes/Admin/Global_Settings.php:288
+#: includes/Admin/Global_Settings.php:485
+#: includes/Admin/Global_Settings.php:668
 msgid "Cross Sign"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:817
+#: includes/Admin/Global_Settings.php:846
 msgid "Custom Attributes (For Catalog)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:711
+#: includes/Admin/Global_Settings.php:740
 msgid "Custom Position"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:862
+#: includes/Admin/Global_Settings.php:891
 msgid "Customize Swatches"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1073
+#: includes/Admin/Global_Settings.php:1102
 msgid "Customize Swatches (Product List)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:743
+#: includes/Admin/Global_Settings.php:772
 msgid "Default: 10"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:250
-#: includes/Admin/Global_Settings.php:436
-#: includes/Admin/Global_Settings.php:627
+#: includes/Admin/Global_Settings.php:253
+#: includes/Admin/Global_Settings.php:447
+#: includes/Admin/Global_Settings.php:647
 msgid "Default: 2px"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:223
+#: includes/Admin/Global_Settings.php:226
 msgid ""
 "Default: 30 <br> When your variable product has more than 30 variations. You "
 "won't be able to visualize which combinations are unavailable to purchase, "
@@ -365,31 +374,31 @@ msgid ""
 "faster than increasing the threshold."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:177
-#: includes/Admin/Global_Settings.php:189
-#: includes/Admin/Global_Settings.php:363
-#: includes/Admin/Global_Settings.php:376
-#: includes/Admin/Global_Settings.php:554
-#: includes/Admin/Global_Settings.php:567
+#: includes/Admin/Global_Settings.php:180
+#: includes/Admin/Global_Settings.php:192
+#: includes/Admin/Global_Settings.php:374
+#: includes/Admin/Global_Settings.php:387
+#: includes/Admin/Global_Settings.php:574
+#: includes/Admin/Global_Settings.php:587
 msgid "Default: 33px"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:216
-#: includes/Admin/Global_Settings.php:406
-#: includes/Admin/Global_Settings.php:597
+#: includes/Admin/Global_Settings.php:219
+#: includes/Admin/Global_Settings.php:417
+#: includes/Admin/Global_Settings.php:617
 msgid ""
 "Default: thumbnail <br>Place the image size name here. WordPress default "
 "image sizes are: thumbnail, medium, medium_large, large and full.  Custom "
 "image size also can be used."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:260
-#: includes/Admin/Global_Settings.php:447
-#: includes/Admin/Global_Settings.php:638
+#: includes/Admin/Global_Settings.php:263
+#: includes/Admin/Global_Settings.php:458
+#: includes/Admin/Global_Settings.php:658
 msgid "Deselect on Click"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:848
+#: includes/Admin/Global_Settings.php:877
 msgid "Design"
 msgstr ""
 
@@ -400,24 +409,24 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1574
+#: includes/Admin/Global_Settings.php:1603
 msgid "Disable Plugin"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:295
-#: includes/Admin/Global_Settings.php:485
-#: includes/Admin/Global_Settings.php:659
+#: includes/Admin/Global_Settings.php:306
+#: includes/Admin/Global_Settings.php:505
+#: includes/Admin/Global_Settings.php:688
 msgid "Disable Variation Form For The \"Out of Stock\" Products"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1034
-#: includes/Admin/Global_Settings.php:1228
+#: includes/Admin/Global_Settings.php:1063
+#: includes/Admin/Global_Settings.php:1257
 msgid "Disabled"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:283
-#: includes/Admin/Global_Settings.php:472
-#: includes/Admin/Global_Settings.php:646
+#: includes/Admin/Global_Settings.php:286
+#: includes/Admin/Global_Settings.php:483
+#: includes/Admin/Global_Settings.php:666
 msgid "Disabled Attribute Type"
 msgstr ""
 
@@ -429,25 +438,25 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:735
+#: includes/Admin/Global_Settings.php:764
 msgid "e.g: woocommerce_after_shop_loop_item_title"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:139
-#: includes/Admin/Global_Settings.php:242
-#: includes/Admin/Global_Settings.php:427
-#: includes/Admin/Global_Settings.php:618
-#: includes/Admin/Global_Settings.php:759
+#: includes/Admin/Global_Settings.php:142
+#: includes/Admin/Global_Settings.php:245
+#: includes/Admin/Global_Settings.php:438
+#: includes/Admin/Global_Settings.php:638
 #: includes/Admin/Global_Settings.php:788
+#: includes/Admin/Global_Settings.php:817
 #: includes/Admin/Product_Metabox.php:183
 msgid "Enable"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:830
+#: includes/Admin/Global_Settings.php:859
 msgid "Enable Ajax Add to Cart"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:787
+#: includes/Admin/Global_Settings.php:816
 msgid "Enable Catalog Mode"
 msgstr ""
 
@@ -456,30 +465,36 @@ msgstr ""
 msgid "Enable Multi Color"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:241
-#: includes/Admin/Global_Settings.php:426
-#: includes/Admin/Global_Settings.php:617
+#: includes/Admin/Global_Settings.php:244
+#: includes/Admin/Global_Settings.php:437
+#: includes/Admin/Global_Settings.php:637
 #: includes/Admin/Product_Metabox.php:178
 msgid "Enable Shape Inset"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:758
+#: includes/Admin/Global_Settings.php:787
 msgid "Enable Swatch Limit"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:138
-#: includes/Admin/Global_Settings.php:319
-#: includes/Admin/Global_Settings.php:510
+#: includes/Admin/Global_Settings.php:298
+#: includes/Admin/Global_Settings.php:496
+#: includes/Admin/Global_Settings.php:679
+msgid "Enable Swatch Selection for Out-of-Stock Variations"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:141
+#: includes/Admin/Global_Settings.php:330
+#: includes/Admin/Global_Settings.php:530
 msgid "Enable Swatches"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:201
-#: includes/Admin/Global_Settings.php:389
-#: includes/Admin/Global_Settings.php:580
+#: includes/Admin/Global_Settings.php:204
+#: includes/Admin/Global_Settings.php:400
+#: includes/Admin/Global_Settings.php:600
 msgid "Enable Tooltip"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:778
+#: includes/Admin/Global_Settings.php:807
 msgid ""
 "Example uses:<br>\n"
 "                        <code>is_page(array(32,50))</code> -> Using this "
@@ -489,11 +504,11 @@ msgid ""
 "will be enable for the main shop page & \"clothing\" category page."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:752
+#: includes/Admin/Global_Settings.php:781
 msgid "Example: img.attachment-woocommerce_thumbnail"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:715
+#: includes/Admin/Global_Settings.php:744
 msgid ""
 "Except \"Custom Position\" & \"Use Shortcode\" option, some swatch positions "
 "may not behave as expected. Because some themes customize/remove the hook "
@@ -502,33 +517,33 @@ msgid ""
 "questions regarding this issue."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:305
+#: includes/Admin/Global_Settings.php:316
 msgid "For Product Details Page"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:496
+#: includes/Admin/Global_Settings.php:516
 msgid "For Product List/Shop page"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:856
+#: includes/Admin/Global_Settings.php:885
 msgid "For Swatches"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1270
+#: includes/Admin/Global_Settings.php:1299
 msgid "For Tooltip"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:120
+#: includes/Admin/Global_Settings.php:123
 msgid "General Settings"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:162
-#: includes/Admin/Global_Settings.php:346
-#: includes/Admin/Global_Settings.php:537
+#: includes/Admin/Global_Settings.php:165
+#: includes/Admin/Global_Settings.php:357
+#: includes/Admin/Global_Settings.php:557
 msgid "Generate URL based on selected variation attributes."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:127
+#: includes/Admin/Global_Settings.php:130
 msgid "Global"
 msgstr ""
 
@@ -552,22 +567,22 @@ msgstr ""
 msgid "HasThemes Stories"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:288
-#: includes/Admin/Global_Settings.php:477
-#: includes/Admin/Global_Settings.php:651
+#: includes/Admin/Global_Settings.php:291
+#: includes/Admin/Global_Settings.php:488
+#: includes/Admin/Global_Settings.php:671
 msgid "Hide"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:734
+#: includes/Admin/Global_Settings.php:763
 msgid "Hook Name"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:742
+#: includes/Admin/Global_Settings.php:771
 msgid "Hook Priority"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:963
-#: includes/Admin/Global_Settings.php:1157
+#: includes/Admin/Global_Settings.php:992
+#: includes/Admin/Global_Settings.php:1186
 msgid "Hover"
 msgstr ""
 
@@ -591,29 +606,29 @@ msgstr ""
 msgid "I already did"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:261
-#: includes/Admin/Global_Settings.php:448
-#: includes/Admin/Global_Settings.php:639
+#: includes/Admin/Global_Settings.php:264
+#: includes/Admin/Global_Settings.php:459
+#: includes/Admin/Global_Settings.php:659
 msgid "If a swatch is selected, clicking on it will deselect it."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:297
-#: includes/Admin/Global_Settings.php:487
-#: includes/Admin/Global_Settings.php:661
+#: includes/Admin/Global_Settings.php:308
+#: includes/Admin/Global_Settings.php:507
+#: includes/Admin/Global_Settings.php:690
 msgid ""
 "If disabled, an out of stock message will be shown instead of showing the "
 "variations form / swatches."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1575
+#: includes/Admin/Global_Settings.php:1604
 msgid ""
 "If you check this option. This plugin will stop working until you uncheck "
 "this."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:209
-#: includes/Admin/Global_Settings.php:398
-#: includes/Admin/Global_Settings.php:589
+#: includes/Admin/Global_Settings.php:212
+#: includes/Admin/Global_Settings.php:409
+#: includes/Admin/Global_Settings.php:609
 msgid ""
 "If you check this options. When a watch type is \"image\" and has an image. "
 "The image will be shown into the tooltip."
@@ -631,7 +646,7 @@ msgstr ""
 msgid "Image Size"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1580
+#: includes/Admin/Global_Settings.php:1609
 msgid "Import / Export Settings"
 msgstr ""
 
@@ -664,11 +679,11 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:839
+#: includes/Admin/Global_Settings.php:868
 msgid "Leave it empty for default."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:775
+#: includes/Admin/Global_Settings.php:804
 msgid ""
 "Leave it empty, if you are not a technical person or don't have any coding "
 "knowledge.<br>\n"
@@ -681,7 +696,7 @@ msgid ""
 "target=\"_blank\">WooCommerce conditional tags</a>"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:693
+#: includes/Admin/Global_Settings.php:722
 msgid "Left"
 msgstr ""
 
@@ -693,8 +708,8 @@ msgstr ""
 msgid "Maybe Later"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1393
-#: includes/Admin/Global_Settings.php:1538
+#: includes/Admin/Global_Settings.php:1422
+#: includes/Admin/Global_Settings.php:1567
 msgid "Minus value is also allowed."
 msgstr ""
 
@@ -712,12 +727,12 @@ msgstr ""
 msgid "No thanks"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:866
-#: includes/Admin/Global_Settings.php:1077
+#: includes/Admin/Global_Settings.php:895
+#: includes/Admin/Global_Settings.php:1106
 msgid "Normal"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:751
+#: includes/Admin/Global_Settings.php:780
 msgid ""
 "Note: Some themes remove the default product image. In this case, variation "
 "image will not be changed after choose a variation. Here you can place the "
@@ -725,7 +740,7 @@ msgid ""
 "once a variation is chosen."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:766
+#: includes/Admin/Global_Settings.php:795
 msgid "Number of Swatch to Show"
 msgstr ""
 
@@ -733,7 +748,7 @@ msgstr ""
 msgid "Ok, you deserve it!"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1568
+#: includes/Admin/Global_Settings.php:1597
 msgid "Other Settings"
 msgstr ""
 
@@ -741,7 +756,7 @@ msgstr ""
 msgid "Pixelavo – Server Side Tracking & Pixel + AI Ads Tools"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:774
+#: includes/Admin/Global_Settings.php:803
 msgid "Place the condition code here"
 msgstr ""
 
@@ -800,17 +815,17 @@ msgstr ""
 msgid "Pro Version is Required!"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:671
+#: includes/Admin/Global_Settings.php:700
 msgid "Product List / Shop"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:750
+#: includes/Admin/Global_Settings.php:779
 msgid "Product Thumbnail Selector"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:168
-#: includes/Admin/Global_Settings.php:353
-#: includes/Admin/Global_Settings.php:544
+#: includes/Admin/Global_Settings.php:171
+#: includes/Admin/Global_Settings.php:364
+#: includes/Admin/Global_Settings.php:564
 msgid "Recently Viewed Variations"
 msgstr ""
 
@@ -840,7 +855,7 @@ msgstr ""
 msgid "Reset to Default"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:695
+#: includes/Admin/Global_Settings.php:724
 msgid "Right"
 msgstr ""
 
@@ -860,7 +875,7 @@ msgstr ""
 msgid "Saving..."
 msgstr ""
 
-#: includes/Admin/Woo_Config.php:30 includes/Admin/Global_Settings.php:807
+#: includes/Admin/Woo_Config.php:30 includes/Admin/Global_Settings.php:836
 msgid "Select"
 msgstr ""
 
@@ -870,12 +885,12 @@ msgstr ""
 msgid "Select %s"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:803
+#: includes/Admin/Global_Settings.php:832
 msgid "Select Global Attributes (For Catalog)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1000
-#: includes/Admin/Global_Settings.php:1194
+#: includes/Admin/Global_Settings.php:1029
+#: includes/Admin/Global_Settings.php:1223
 msgid "Selected"
 msgstr ""
 
@@ -893,21 +908,21 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:243
-#: includes/Admin/Global_Settings.php:428
-#: includes/Admin/Global_Settings.php:619
+#: includes/Admin/Global_Settings.php:246
+#: includes/Admin/Global_Settings.php:439
+#: includes/Admin/Global_Settings.php:639
 msgid "Shape inset is the empty space around the swatch."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:249
-#: includes/Admin/Global_Settings.php:435
-#: includes/Admin/Global_Settings.php:626
+#: includes/Admin/Global_Settings.php:252
+#: includes/Admin/Global_Settings.php:446
+#: includes/Admin/Global_Settings.php:646
 msgid "Shape Inset Size"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:229
-#: includes/Admin/Global_Settings.php:413
-#: includes/Admin/Global_Settings.php:604
+#: includes/Admin/Global_Settings.php:232
+#: includes/Admin/Global_Settings.php:424
+#: includes/Admin/Global_Settings.php:624
 #: includes/Admin/Product_Metabox.php:163
 msgid "Shape Style"
 msgstr ""
@@ -917,26 +932,26 @@ msgstr ""
 msgid "ShopLentor – All-in-One WooCommerce Growth & Store Enhancement Plugin"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:684
+#: includes/Admin/Global_Settings.php:713
 msgid "Show Clear Link"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:267
-#: includes/Admin/Global_Settings.php:455
+#: includes/Admin/Global_Settings.php:270
+#: includes/Admin/Global_Settings.php:466
 msgid "Show Selected Variation Name"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:208
-#: includes/Admin/Global_Settings.php:397
-#: includes/Admin/Global_Settings.php:588
+#: includes/Admin/Global_Settings.php:211
+#: includes/Admin/Global_Settings.php:408
+#: includes/Admin/Global_Settings.php:608
 msgid "Show Swatch Image into The Tooltip"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:677
+#: includes/Admin/Global_Settings.php:706
 msgid "Show Swatches Label"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:721
+#: includes/Admin/Global_Settings.php:750
 msgid ""
 "Some themes remove the above positions. In that case, custom position is "
 "useful. Here you can place the custom/default hook name & priority to inject "
@@ -968,25 +983,25 @@ msgid ""
 "Ticketing System"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:896
-#: includes/Admin/Global_Settings.php:979
-#: includes/Admin/Global_Settings.php:1015
-#: includes/Admin/Global_Settings.php:1049
-#: includes/Admin/Global_Settings.php:1090
-#: includes/Admin/Global_Settings.php:1173
-#: includes/Admin/Global_Settings.php:1209
-#: includes/Admin/Global_Settings.php:1243
+#: includes/Admin/Global_Settings.php:925
+#: includes/Admin/Global_Settings.php:1008
+#: includes/Admin/Global_Settings.php:1044
+#: includes/Admin/Global_Settings.php:1078
+#: includes/Admin/Global_Settings.php:1119
+#: includes/Admin/Global_Settings.php:1202
+#: includes/Admin/Global_Settings.php:1238
+#: includes/Admin/Global_Settings.php:1272
 msgid "Swatch Background Color"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:904
-#: includes/Admin/Global_Settings.php:990
-#: includes/Admin/Global_Settings.php:1025
-#: includes/Admin/Global_Settings.php:1059
-#: includes/Admin/Global_Settings.php:1098
-#: includes/Admin/Global_Settings.php:1184
-#: includes/Admin/Global_Settings.php:1219
-#: includes/Admin/Global_Settings.php:1253
+#: includes/Admin/Global_Settings.php:933
+#: includes/Admin/Global_Settings.php:1019
+#: includes/Admin/Global_Settings.php:1054
+#: includes/Admin/Global_Settings.php:1088
+#: includes/Admin/Global_Settings.php:1127
+#: includes/Admin/Global_Settings.php:1213
+#: includes/Admin/Global_Settings.php:1248
+#: includes/Admin/Global_Settings.php:1282
 msgid "Swatch Border"
 msgstr ""
 
@@ -1004,9 +1019,9 @@ msgstr ""
 msgid "Swatch Image"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:207
-#: includes/Admin/Global_Settings.php:396
-#: includes/Admin/Global_Settings.php:587
+#: includes/Admin/Global_Settings.php:210
+#: includes/Admin/Global_Settings.php:407
+#: includes/Admin/Global_Settings.php:607
 msgid "Swatch Image as Tooltip"
 msgstr ""
 
@@ -1014,44 +1029,44 @@ msgstr ""
 msgid "Swatch Image Size"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:916
-#: includes/Admin/Global_Settings.php:1110
+#: includes/Admin/Global_Settings.php:945
+#: includes/Admin/Global_Settings.php:1139
 msgid "Swatch Item Margin"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:928
-#: includes/Admin/Global_Settings.php:1122
+#: includes/Admin/Global_Settings.php:957
+#: includes/Admin/Global_Settings.php:1151
 msgid "Swatch Item Padding"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:188
-#: includes/Admin/Global_Settings.php:375
-#: includes/Admin/Global_Settings.php:566
+#: includes/Admin/Global_Settings.php:191
+#: includes/Admin/Global_Settings.php:386
+#: includes/Admin/Global_Settings.php:586
 msgid "Swatch Minimum Height"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:176
-#: includes/Admin/Global_Settings.php:362
-#: includes/Admin/Global_Settings.php:553
+#: includes/Admin/Global_Settings.php:179
+#: includes/Admin/Global_Settings.php:373
+#: includes/Admin/Global_Settings.php:573
 msgid "Swatch Minimum Width"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:872
-#: includes/Admin/Global_Settings.php:969
-#: includes/Admin/Global_Settings.php:1006
-#: includes/Admin/Global_Settings.php:1040
-#: includes/Admin/Global_Settings.php:1083
-#: includes/Admin/Global_Settings.php:1163
-#: includes/Admin/Global_Settings.php:1200
-#: includes/Admin/Global_Settings.php:1234
+#: includes/Admin/Global_Settings.php:901
+#: includes/Admin/Global_Settings.php:998
+#: includes/Admin/Global_Settings.php:1035
+#: includes/Admin/Global_Settings.php:1069
+#: includes/Admin/Global_Settings.php:1112
+#: includes/Admin/Global_Settings.php:1192
+#: includes/Admin/Global_Settings.php:1229
+#: includes/Admin/Global_Settings.php:1263
 msgid "Swatch Text Color"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:879
+#: includes/Admin/Global_Settings.php:908
 msgid "Swatch Text Font Size"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:887
+#: includes/Admin/Global_Settings.php:916
 msgid "Swatch Text Line Height"
 msgstr ""
 
@@ -1066,11 +1081,11 @@ msgstr ""
 msgid "Swatch Type"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:691
+#: includes/Admin/Global_Settings.php:720
 msgid "Swatches Align"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:703
+#: includes/Admin/Global_Settings.php:732
 msgid "Swatches Position"
 msgstr ""
 
@@ -1078,21 +1093,21 @@ msgstr ""
 msgid "Swatches Settings"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:320
+#: includes/Admin/Global_Settings.php:331
 msgid "Swatches will be enabled for the product details page."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:511
+#: includes/Admin/Global_Settings.php:531
 msgid "Swatches will be enabled for the Product List / Shop."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:940
-#: includes/Admin/Global_Settings.php:1134
+#: includes/Admin/Global_Settings.php:969
+#: includes/Admin/Global_Settings.php:1163
 msgid "Swatches Wrapper Margin"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:952
-#: includes/Admin/Global_Settings.php:1146
+#: includes/Admin/Global_Settings.php:981
+#: includes/Admin/Global_Settings.php:1175
 msgid "Swatches Wrapper Padding"
 msgstr ""
 
@@ -1128,15 +1143,15 @@ msgstr ""
 msgid "Thank you very much for supporting %2$s%1$s%3$s."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:863
-#: includes/Admin/Global_Settings.php:1277
+#: includes/Admin/Global_Settings.php:892
+#: includes/Admin/Global_Settings.php:1306
 msgid ""
 "These customizations will be applied for the swatches which is located in "
 "\"Single Product\" and \"Product List\" Page."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1074
-#: includes/Admin/Global_Settings.php:1422
+#: includes/Admin/Global_Settings.php:1103
+#: includes/Admin/Global_Settings.php:1451
 msgid ""
 "These customizations will be applied only for the \"Product List\" page's "
 "swatches."
@@ -1150,114 +1165,114 @@ msgstr ""
 msgid "This product is currently out of stock and unavailable."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:200
-#: includes/Admin/Global_Settings.php:388
-#: includes/Admin/Global_Settings.php:579
-#: includes/Admin/Global_Settings.php:1280
-#: includes/Admin/Global_Settings.php:1425
+#: includes/Admin/Global_Settings.php:203
+#: includes/Admin/Global_Settings.php:399
+#: includes/Admin/Global_Settings.php:599
+#: includes/Admin/Global_Settings.php:1309
+#: includes/Admin/Global_Settings.php:1454
 msgid "Tooltip"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1369
-#: includes/Admin/Global_Settings.php:1514
+#: includes/Admin/Global_Settings.php:1398
+#: includes/Admin/Global_Settings.php:1543
 msgid "Tooltip Arrow"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1375
-#: includes/Admin/Global_Settings.php:1520
+#: includes/Admin/Global_Settings.php:1404
+#: includes/Admin/Global_Settings.php:1549
 msgid "Tooltip Arrow Color"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1384
-#: includes/Admin/Global_Settings.php:1529
+#: includes/Admin/Global_Settings.php:1413
+#: includes/Admin/Global_Settings.php:1558
 msgid "Tooltip Arrow Size"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1392
-#: includes/Admin/Global_Settings.php:1537
+#: includes/Admin/Global_Settings.php:1421
+#: includes/Admin/Global_Settings.php:1566
 msgid "Tooltip Arrow Spacing"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1305
-#: includes/Admin/Global_Settings.php:1450
+#: includes/Admin/Global_Settings.php:1334
+#: includes/Admin/Global_Settings.php:1479
 msgid "Tooltip Background Color"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1313
-#: includes/Admin/Global_Settings.php:1458
+#: includes/Admin/Global_Settings.php:1342
+#: includes/Admin/Global_Settings.php:1487
 msgid "Tooltip Border"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1276
+#: includes/Admin/Global_Settings.php:1305
 msgid "Tooltip Customize"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1421
+#: includes/Admin/Global_Settings.php:1450
 msgid "Tooltip Customize (Product List)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1403
-#: includes/Admin/Global_Settings.php:1548
+#: includes/Admin/Global_Settings.php:1432
+#: includes/Admin/Global_Settings.php:1577
 #: includes/Admin/Attribute_Taxonomy_Metabox.php:73
 #: includes/Admin/Product_Metabox.php:214
 #: includes/Admin/Product_Metabox.php:324
 msgid "Tooltip Image"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1409
-#: includes/Admin/Global_Settings.php:1554
+#: includes/Admin/Global_Settings.php:1438
+#: includes/Admin/Global_Settings.php:1583
 msgid "Tooltip Image Border"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:215
-#: includes/Admin/Global_Settings.php:405
-#: includes/Admin/Global_Settings.php:596
+#: includes/Admin/Global_Settings.php:218
+#: includes/Admin/Global_Settings.php:416
+#: includes/Admin/Global_Settings.php:616
 #: includes/Admin/Attribute_Taxonomy_Metabox.php:81
 #: includes/Admin/Product_Metabox.php:235
 #: includes/Admin/Product_Metabox.php:345
 msgid "Tooltip Image Size"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1295
-#: includes/Admin/Global_Settings.php:1440
+#: includes/Admin/Global_Settings.php:1324
+#: includes/Admin/Global_Settings.php:1469
 msgid "Tooltip Maximum Width"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1321
-#: includes/Admin/Global_Settings.php:1466
+#: includes/Admin/Global_Settings.php:1350
+#: includes/Admin/Global_Settings.php:1495
 msgid "Tooltip Spacing"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1332
-#: includes/Admin/Global_Settings.php:1477
+#: includes/Admin/Global_Settings.php:1361
+#: includes/Admin/Global_Settings.php:1506
 #: includes/Admin/Attribute_Taxonomy_Metabox.php:65
 #: includes/Admin/Product_Metabox.php:206
 #: includes/Admin/Product_Metabox.php:316
 msgid "Tooltip Text"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1338
-#: includes/Admin/Global_Settings.php:1483
+#: includes/Admin/Global_Settings.php:1367
+#: includes/Admin/Global_Settings.php:1512
 msgid "Tooltip Text Color"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1345
-#: includes/Admin/Global_Settings.php:1490
+#: includes/Admin/Global_Settings.php:1374
+#: includes/Admin/Global_Settings.php:1519
 msgid "Tooltip Text Font Size"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1354
-#: includes/Admin/Global_Settings.php:1499
+#: includes/Admin/Global_Settings.php:1383
+#: includes/Admin/Global_Settings.php:1528
 msgid "Tooltip Text Line Height"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1363
-#: includes/Admin/Global_Settings.php:1508
+#: includes/Admin/Global_Settings.php:1392
+#: includes/Admin/Global_Settings.php:1537
 msgid "Tooltip Text Padding"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:1286
-#: includes/Admin/Global_Settings.php:1431
+#: includes/Admin/Global_Settings.php:1315
+#: includes/Admin/Global_Settings.php:1460
 msgid "Tooltip Width"
 msgstr ""
 
@@ -1279,12 +1294,12 @@ msgstr ""
 msgid "Use image"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:712
+#: includes/Admin/Global_Settings.php:741
 msgid "Use Shortcode"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:274
-#: includes/Admin/Global_Settings.php:463
+#: includes/Admin/Global_Settings.php:277
+#: includes/Admin/Global_Settings.php:474
 msgid "Variation Label Separator"
 msgstr ""
 
@@ -1292,18 +1307,18 @@ msgstr ""
 msgid "Variation Swatches for WooCommerce Products"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:160
-#: includes/Admin/Global_Settings.php:344
-#: includes/Admin/Global_Settings.php:535
+#: includes/Admin/Global_Settings.php:163
+#: includes/Admin/Global_Settings.php:355
+#: includes/Admin/Global_Settings.php:555
 msgid "Variation URL"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:311
+#: includes/Admin/Global_Settings.php:322
 msgid ""
 "Want to control the \"Global\" settings for Product Details page differently?"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:502
+#: includes/Admin/Global_Settings.php:522
 msgid "Want to control the \"Global\" settings for shop page differently?"
 msgstr ""
 
@@ -1337,28 +1352,31 @@ msgstr ""
 msgid "WP Plugin Manager – Deactivate plugins per page"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:818
+#: includes/Admin/Global_Settings.php:847
 msgid ""
 "Write each attribute per line. Note: The custom attributes values are <b>"
 "Case Sensitive</b>"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:161
-#: includes/Admin/Global_Settings.php:169
-#: includes/Admin/Global_Settings.php:268
-#: includes/Admin/Global_Settings.php:296
-#: includes/Admin/Global_Settings.php:312
-#: includes/Admin/Global_Settings.php:345
-#: includes/Admin/Global_Settings.php:354
-#: includes/Admin/Global_Settings.php:456
-#: includes/Admin/Global_Settings.php:486
-#: includes/Admin/Global_Settings.php:503
-#: includes/Admin/Global_Settings.php:536
-#: includes/Admin/Global_Settings.php:545
-#: includes/Admin/Global_Settings.php:660
-#: includes/Admin/Global_Settings.php:678
-#: includes/Admin/Global_Settings.php:685
-#: includes/Admin/Global_Settings.php:831
+#: includes/Admin/Global_Settings.php:164
+#: includes/Admin/Global_Settings.php:172
+#: includes/Admin/Global_Settings.php:271
+#: includes/Admin/Global_Settings.php:299
+#: includes/Admin/Global_Settings.php:307
+#: includes/Admin/Global_Settings.php:323
+#: includes/Admin/Global_Settings.php:356
+#: includes/Admin/Global_Settings.php:365
+#: includes/Admin/Global_Settings.php:467
+#: includes/Admin/Global_Settings.php:497
+#: includes/Admin/Global_Settings.php:506
+#: includes/Admin/Global_Settings.php:523
+#: includes/Admin/Global_Settings.php:556
+#: includes/Admin/Global_Settings.php:565
+#: includes/Admin/Global_Settings.php:680
+#: includes/Admin/Global_Settings.php:689
+#: includes/Admin/Global_Settings.php:707
+#: includes/Admin/Global_Settings.php:714
+#: includes/Admin/Global_Settings.php:860
 msgid "Yes"
 msgstr ""
 

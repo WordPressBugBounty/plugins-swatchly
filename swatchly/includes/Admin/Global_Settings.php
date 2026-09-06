@@ -49,6 +49,7 @@ class Global_Settings {
                 'show_selected_attribute_name'       => 1,
                 'variation_label_separator'          => ' : ',
                 'disabled_attribute_type'            => '',
+                'enable_out_of_stock_swatch_selection'    => '',
                 'disable_out_of_stock'               => '',
                 'sp_override_global'                 => '',
                 'sp_enable_swatches'                 => '',
@@ -64,6 +65,7 @@ class Global_Settings {
                 'sp_deselect_on_click'               => 1,
                 'sp_show_selected_attribute_name'    => 1,
                 'sp_disabled_attribute_type'         => '',
+                'sp_enable_out_of_stock_swatch_selection' => '',
                 'sp_disable_out_of_stock'            => '',
                 'pl_override_global'                 => 1,
                 'pl_enable_swatches'                 => '',
@@ -78,6 +80,7 @@ class Global_Settings {
                 'pl_shape_inset_size'                => '',
                 'pl_deselect_on_click'               => 1,
                 'pl_disabled_attribute_type'         => '',
+                'pl_enable_out_of_stock_swatch_selection' => '',
                 'pl_disable_out_of_stock'            => '',
                 'pl_show_swatches_label'             => '',
                 'pl_show_clear_link'                 => 0,
@@ -288,6 +291,14 @@ class Global_Settings {
                         'hide'            => esc_html__('Hide', 'swatchly'),
                     )
                 ),
+                // enable_out_of_stock_swatch_selection
+                array(
+                    'id'    => 'enable_out_of_stock_swatch_selection',
+                    'type'  => 'checkbox',
+                    'title' => esc_html__('Enable Swatch Selection for Out-of-Stock Variations', 'swatchly'),
+                    'label' => esc_html__('Yes', 'swatchly'),
+                    'desc'  => esc_html__('By default, an out-of-stock variation swatch stays disabled/non-clickable (previous behavior). Enable this to let customers click an out-of-stock swatch to see its price and the "out of stock" message.', 'swatchly'),
+                ),
                 // disable_out_of_stock
                 array(
                     'id'    => 'disable_out_of_stock',
@@ -478,6 +489,15 @@ class Global_Settings {
                     ),
                     'dependency' => array('sp_override_global', '==', '1')
                 ),
+                // sp_enable_out_of_stock_swatch_selection
+                array(
+                    'id'    => 'sp_enable_out_of_stock_swatch_selection',
+                    'type'  => 'checkbox',
+                    'title' => esc_html__('Enable Swatch Selection for Out-of-Stock Variations', 'swatchly'),
+                    'label' => esc_html__('Yes', 'swatchly'),
+                    'desc'  => esc_html__('By default, an out-of-stock variation swatch stays disabled/non-clickable (previous behavior). Enable this to let customers click an out-of-stock swatch to see its price and the "out of stock" message.', 'swatchly'),
+                    'dependency' => array('sp_override_global', '==', '1')
+                ),
                 // sp_disable_out_of_stock
                 array(
                     'id'    => 'sp_disable_out_of_stock',
@@ -650,6 +670,15 @@ class Global_Settings {
                         'blur'            => esc_html__('Blur', 'swatchly'),
                         'hide'            => esc_html__('Hide', 'swatchly'),
                     ),
+                    'dependency' => array('pl_override_global', '==', '1')
+                ),
+                // pl_enable_out_of_stock_swatch_selection
+                array(
+                    'id'         => 'pl_enable_out_of_stock_swatch_selection',
+                    'type'       => 'checkbox',
+                    'title'      => esc_html__('Enable Swatch Selection for Out-of-Stock Variations', 'swatchly'),
+                    'label'      => esc_html__('Yes', 'swatchly'),
+                    'desc'       => esc_html__('By default, an out-of-stock variation swatch stays disabled/non-clickable (previous behavior). Enable this to let customers click an out-of-stock swatch to see its price and the "out of stock" message.', 'swatchly'),
                     'dependency' => array('pl_override_global', '==', '1')
                 ),
                 // pl_disable_out_of_stock

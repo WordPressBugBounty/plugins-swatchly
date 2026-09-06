@@ -1,10 +1,10 @@
 === Swatchly – Product Variation Swatches for WooCommerce ===
 Contributors: hasthemes, aslamhasib, zenaulislam, yeasinrony
 Tags: color swatch, variation swatches, woocommerce variation, product attributes, woocommerce attributes
-Requires at least: 4.0
+Requires at least: 5.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.4.15
+Stable tag: 1.4.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,8 +22,6 @@ See Swatchly in action:
 == 📌 Important Links ==
 
 🔗 [Live Demo](https://wpswatchly.com/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 📖 [Documentation](https://wpswatchly.com/docs/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 🚀 [Pro Version](https://wpswatchly.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile) | 💬 [Support](https://wpswatchly.com/contact/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=orgprofile)
-
-🔥 **Limited-Time Offer — Lifetime Deal: $199** (was $399) · **Save 50%** · unlimited websites, yours forever. 👉 [See the Offer](https://wpswatchly.com/pricing/?plan=agency-lifetime&utm_source=wprepo&utm_medium=readme&utm_campaign=swatchly_lifetime_aug2026&utm_content=readme-offer#pricing) — ends August 31.
 
 == 📹 Video Tutorial ==
 
@@ -309,6 +307,10 @@ For the **free version**, use the [WordPress.org support forum](https://wordpres
 
 
 == Changelog ==
+
+= Version: 1.4.16 - Date: 06 September 2026 =
+* Added: New "Enable Swatch Selection for Out-of-Stock Variations" setting — lets customers click an out-of-stock variation swatch to see its price and the "Out of stock" message. Disabled by default (existing behavior is unchanged unless you turn this on).
+* Tested: Compatibility with the latest version of WooCommerce.
 
 = Version: 1.4.15 - Date: 27 August 2026 =
 - Fixed: Recommended Plugins page grid collapsed to a single column on newer WordPress versions.
