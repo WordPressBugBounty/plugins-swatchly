@@ -306,7 +306,7 @@ class Woo_Config {
                     $tooltip_image_size2 = get_term_meta( $term->term_id, 'swatchly_tooltip_image_size', true );
                     if($tooltip2 == 'image'){
                         $tooltip = true;
-                        $tooltip_image = $tooltip_image2['id'];
+                        $tooltip_image = ( is_array( $tooltip_image2 ) && isset( $tooltip_image2['id'] ) ) ? $tooltip_image2['id'] : '';
                         $tooltip_image_size = $tooltip_image_size2 ? $tooltip_image_size2 : $tooltip_image_size;
                     }
 

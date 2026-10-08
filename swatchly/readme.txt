@@ -4,7 +4,7 @@ Tags: color swatch, variation swatches, woocommerce variation, product attribute
 Requires at least: 5.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.4.16
+Stable tag: 1.4.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -307,6 +307,10 @@ For the **free version**, use the [WordPress.org support forum](https://wordpres
 
 
 == Changelog ==
+
+= Version: 1.4.17 - Date: 08 October 2026 =
+* Fixed: PHP 8.x compatibility issue with image tooltips.
+* Tested: Compatibility with the latest WordPress version.
 
 = Version: 1.4.16 - Date: 06 September 2026 =
 * Added: New "Enable Swatch Selection for Out-of-Stock Variations" setting — lets customers click an out-of-stock variation swatch to see its price and the "Out of stock" message. Disabled by default (existing behavior is unchanged unless you turn this on).
