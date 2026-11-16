@@ -3,7 +3,7 @@
  * Plugin Name: Swatchly - Variation Swatches for WooCommerce Products
  * Plugin URI:  https://plugindemo.hasthemes.com/swatchly/
  * Description: Variation Swatches for WooCommerce Products
- * Version:     1.4.17
+ * Version:     1.4.18
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -29,7 +29,7 @@ final class Swatchly {
      *
      * @since 1.0.0
      */
-    public $version = '1.4.17';
+    public $version = '1.4.18';
 
     /**
      * The single instance of the class
@@ -180,7 +180,8 @@ final class Swatchly {
         if ( current_user_can('manage_options') && get_transient('swatchly_do_activation_redirect') ) {
             delete_transient( 'swatchly_do_activation_redirect' );
             
-            exit( esc_url(wp_redirect("admin.php?page=swatchly-admin")) );
+            wp_safe_redirect( admin_url( 'admin.php?page=swatchly-admin' ) );
+            exit;
         }
     }
 

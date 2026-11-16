@@ -4,7 +4,7 @@ Tags: color swatch, variation swatches, woocommerce variation, product attribute
 Requires at least: 5.9
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.4.17
+Stable tag: 1.4.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -307,6 +307,10 @@ For the **free version**, use the [WordPress.org support forum](https://wordpres
 
 
 == Changelog ==
+
+= Version: 1.4.18 - Date: 16 November 2026 =
+* Fixed: Stray output during the post-activation redirect to the settings page.
+* Improved: Code quality updates for WordPress Plugin Check compliance.
 
 = Version: 1.4.17 - Date: 08 October 2026 =
 * Fixed: PHP 8.x compatibility issue with image tooltips.
